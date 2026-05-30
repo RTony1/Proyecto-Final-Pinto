@@ -1,1734 +1,1280 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VIDEOFORGE 2.0 - Sustentación de Proyecto</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
-    /* ========================= */
-    /* RESET & BASE */
-    /* ========================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Poppins', sans-serif;
-      background: #faf8f5;
-      color: #1e293b;
-    }
-
-    /* ========================= */
-    /* FONDO CREMA ELEGANTE */
-    /* ========================= */
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%, 100% 50%, 50% 50%; }
-      50% { background-position: 100% 50%, 0% 50%, 30% 70%; }
-      100% { background-position: 0% 50%, 100% 50%, 50% 50%; }
-    }
-
-    body {
-      background:
-        radial-gradient(circle at 10% 20%, rgba(243, 232, 213, 0.55) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(219, 234, 254, 0.45) 0%, transparent 50%),
-        #faf8f5;
-      background-size: 100% 100%;
-    }
-
-    /* ========================= */
-    /* CONTENEDOR & ESTRUCTURA */
-    /* ========================= */
-    .presentation {
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .slides {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.9s cubic-bezier(.77,0,.18,1);
-    }
-
-    .slide {
-      width: 100vw;
-      height: 100vh;
-      padding: 40px 60px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    /* ========================= */
-    /* LIGHT GLASSMORPHISM */
-    /* ========================= */
-    .glass {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.04),
-        inset 0 1px 1px rgba(255, 255, 255, 0.9);
-    }
-
-    /* ========================= */
-    /* CONTENIDO */
-    /* ========================= */
-    .slide-content {
-      width: 100%;
-      max-width: 1350px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-      animation: fadeUp 1s ease;
-    }
-
-    h1 {
-      font-size: 4rem;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1px;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #0f172a 40%, #334155 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 5px;
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      color: #1e3a8a;
-      margin-bottom: 8px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: #475569;
-    }
-
-    li {
-      font-size: 0.92rem;
-      line-height: 1.7;
-      margin-bottom: 6px;
-      color: #334155;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .accent-color {
-      color: #1d4ed8;
-      font-weight: 600;
-    }
-
-    /* ========================= */
-    /* DIAPOSITIVA PORTADA (SOLO LETRAS, TÍTULO ÚNICO GRANDE) */
-    /* ========================= */
-    .cover {
-      text-align: center;
-    }
-
-    .cover-box-clean {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
-      padding: 20px;
-    }
-
-    .cover h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.2;
-      letter-spacing: -1.5px;
-      background: none;
-      -webkit-text-fill-color: initial;
-    }
-
-    .cover h1 span {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #475569;
-      display: block;
-      margin-top: 10px;
-      letter-spacing: -0.5px;
-    }
-
-    .subtitle-clean {
-      font-size: 1rem;
-      max-width: 800px;
-      margin: 15px auto 25px auto;
-      color: #475569;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    .info-list-clean {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      width: 100%;
-      border-top: 1px solid rgba(0,0,0,0.06);
-      padding-top: 25px;
-    }
-
-    .info-item-clean {
-      text-align: center;
-    }
-
-    .info-item-clean span {
-      display: block;
-      font-size: 0.72rem;
-      color: #94a3b8;
-      margin-bottom: 4px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .info-item-clean strong {
-      font-size: 0.85rem;
-      color: #1e293b;
-      font-weight: 600;
-    }
-
-    /* ========================= */
-    /* GRID LAYOUTS */
-    /* ========================= */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    /* ========================= */
-    /* CARD STYLING (CREMA CLARO) */
-    /* ========================= */
-    .card {
-      padding: 22px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(to right, #1d4ed8, #0284c7);
-      opacity: 0;
-      transition: 0.4s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 1);
-      border-color: rgba(29, 78, 216, 0.2);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    /* ========================= */
-    /* TABLAS CLARAS */
-    /* ========================= */
-    .table-container {
-      width: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      background: rgba(255, 255, 255, 0.6);
-    }
-
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.8rem;
-    }
-
-    .table th {
-      background: rgba(241, 245, 249, 0.9);
-      padding: 12px 16px;
-      text-align: left;
-      font-size: 0.85rem;
-      color: #1e3a8a;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .table td {
-      padding: 11px 16px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      color: #334155;
-    }
-
-    .table tr:hover td {
-      background: rgba(29, 78, 216, 0.02);
-      color: #0f172a;
-    }
-
-    /* ========================= */
-    /* CODE BLOCKS (LIGHT CONTRAST ELEMENT) */
-    /* ========================= */
-    pre {
-      background: #0f172a !important; /* Mantenemos fondo oscuro para código de desarrollo */
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      padding: 14px;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.72rem;
-      overflow-x: auto;
-      color: #38bdf8;
-      width: 100%;
-      text-align: left;
-    }
-    .code-comment { color: #64748b; font-style: italic; }
-    .code-keyword { color: #c084fc; }
-    .code-type { color: #f43f5e; }
-    .code-method { color: #38bdf8; }
-    .code-str { color: #34d399; }
-
-    /* ========================= */
-    /* KPIs CLARAS */
-    /* ========================= */
-    .kpi {
-      text-align: center;
-      padding: 24px 15px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
-
-    .kpi:hover {
-      background: rgba(29, 78, 216, 0.02);
-      border-color: rgba(29, 78, 216, 0.2);
-      transform: scale(1.05);
-    }
-
-    .kpi h2 {
-      font-size: 3rem;
-      color: #1d4ed8;
-      font-weight: 800;
-    }
-
-    .kpi p {
-      margin-top: 8px;
-      font-size: 0.85rem;
-      color: #475569;
-    }
-
-    /* ========================= */
-    /* TIMELINE CLARO */
-    /* ========================= */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .timeline-item {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-    }
-
-    .timeline-number {
-      width: 48px;
-      height: 48px;
-      min-width: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
-      color: white;
-      background: linear-gradient(135deg, #1d4ed8, #0284c7);
-      box-shadow: 0 4px 10px rgba(29, 78, 216, 0.15);
-    }
-
-    .timeline-item .card {
-      flex-grow: 1;
-    }
-
-    /* ========================= */
-    /* INDEX GRID CLARO */
-    /* ========================= */
-    .index-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-
-    .index-item {
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      font-size: 0.78rem;
-      color: #334155;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .index-item:hover {
-      background: rgba(29, 78, 216, 0.06);
-      border-color: rgba(29, 78, 216, 0.25);
-      color: #1d4ed8;
-      transform: translateY(-2px) scale(1.02);
-    }
-
-    .index-item-number {
-      background: rgba(29, 78, 216, 0.1);
-      color: #1d4ed8;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.7rem;
-    }
-
-    /* ========================= */
-    /* CONTROLES CLAROS */
-    /* ========================= */
-    .progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: rgba(0, 0, 0, 0.03);
-      z-index: 999;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #1d4ed8, #0284c7, #4f46e5);
-      box-shadow: 0 0 8px rgba(29, 78, 216, 0.3);
-      transition: width 0.3s ease;
-    }
-
-    .control-panel {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 14px;
-      border-radius: 50px;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.85);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-    }
-
-    .ctrl-btn {
-      background: none;
-      border: none;
-      color: #334155;
-      font-size: 1rem;
-      cursor: pointer;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-
-    .ctrl-btn:hover {
-      background: rgba(0, 0, 0, 0.05);
-      color: #1d4ed8;
-    }
-
-    .ctrl-info {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #64748b;
-      border-left: 1px solid rgba(0, 0, 0, 0.08);
-      padding-left: 10px;
-      margin-left: 4px;
-    }
-
-    .dot-navigation {
-      position: fixed;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .dot:hover, .dot.active {
-      background: #1d4ed8;
-      transform: scale(1.3);
-      box-shadow: 0 0 6px rgba(29, 78, 216, 0.3);
-    }
-
-    .dot-tooltip {
-      position: absolute;
-      right: 18px;
-      top: 50%;
-      transform: translateY(-50%) translateX(-10px);
-      background: rgba(15, 23, 42, 0.95);
-      color: white;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 0.7rem;
-      white-space: nowrap;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      pointer-events: none;
-    }
-
-    .dot:hover .dot-tooltip {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(-50%) translateX(0);
-    }
-
-    .footer {
-      position: absolute;
-      bottom: 18px;
-      right: 25px;
-      font-size: 0.8rem;
-      color: #64748b;
-      font-weight: 500;
-    }
-
-    .badge {
-      background: rgba(29, 78, 216, 0.08);
-      border: 1px solid rgba(29, 78, 216, 0.15);
-      color: #1d4ed8;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      display: inline-block;
-      width: fit-content;
-    }
-
-    .badge-alert {
-      background: rgba(220, 38, 38, 0.08);
-      border: 1px solid rgba(220, 38, 38, 0.15);
-      color: #dc2626;
-    }
-
-    /* SVG MVC flow styles - Light adapted */
-    .svg-flow-container {
-      width: 100%;
-      height: 120px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.6);
-      border-radius: 12px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      padding: 10px;
-    }
-    
-    .svg-flow {
-      width: 100%;
-      max-width: 600px;
-      height: 100%;
-    }
-
-    /* ========================= */
-    /* ANIMACIONES */
-    /* ========================= */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ========================= */
-    /* RESPONSIVE ADAPTATIONS */
-    /* ========================= */
-    @media (max-width: 1000px) {
-      .slide {
-        padding: 30px 20px;
-      }
-      .cover h1 { font-size: 2rem; }
-      .cover h1 span { font-size: 1.3rem; }
-      h2 { font-size: 1.6rem; }
-      h3 { font-size: 1.05rem; }
-      p, li { font-size: 0.85rem; }
-      .grid-2, .grid-3, .grid-4, .index-grid, .info-grid {
-        grid-template-columns: 1fr !important;
-        gap: 10px;
-      }
-      .dot-navigation { display: none; }
-      .control-panel { bottom: 10px; left: 10px; }
-      .table-container { overflow-x: auto; }
-      .timeline-item { flex-direction: column; align-items: flex-start; }
-      .timeline-number { width: 32px; height: 32px; min-width: 32px; font-size: 0.9rem; }
-      .cover-box-clean { padding: 10px; }
-      .svg-flow-container { display: none; }
-      .info-list-clean { gap: 15px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIDEOFORGE – Presentación Completa del Equipo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════════════════ */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: #f1f5f9;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECCIONES (cada presentación es una "sección")
+   Colores por sección: accent / accent2
+═══════════════════════════════════════════════════════════════ */
+.section { display: none; position: absolute; inset: 0; }
+.section.active-section { display: block; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SLIDES
+═══════════════════════════════════════════════════════════════ */
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  padding: 72px 60px 80px;
+  opacity: 0; transform: translateX(60px);
+  transition: opacity .45s cubic-bezier(.4,0,.2,1), transform .45s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+}
+.slide.active { opacity:1; transform:translateX(0); pointer-events:all; }
+.slide.exit   { opacity:0; transform:translateX(-60px); }
+
+/* ═══════════════════════════════════════════════════════════════
+   TOP BAR: progress + section tabs
+═══════════════════════════════════════════════════════════════ */
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  display: flex; flex-direction: column;
+}
+#progress-track {
+  height: 3px; background: #1e293b; width: 100%;
+}
+#progress-fill {
+  height: 100%; width: 0%;
+  transition: width .4s ease;
+}
+#section-tabs {
+  display: flex; align-items: stretch;
+  background: rgba(15,23,42,.92);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  backdrop-filter: blur(14px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+#section-tabs::-webkit-scrollbar { display: none; }
+.stab {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 16px;
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: #64748b; cursor: pointer; white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s, background .2s;
+  flex-shrink: 0;
+}
+.stab:hover { color: #cbd5e1; background: rgba(255,255,255,.04); }
+.stab.active { color: #fff; border-bottom-color: var(--stab-color); background: rgba(255,255,255,.04); }
+.stab .stab-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--stab-color); opacity: .5; transition: opacity .2s;
+}
+.stab.active .stab-dot { opacity: 1; }
+.stab-icon { font-size: .95rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   BOTTOM NAV
+═══════════════════════════════════════════════════════════════ */
+#bottomnav {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(30,41,59,.92); border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(14px); border-radius: 99px;
+  padding: 9px 20px; z-index: 300;
+}
+.bnav-btn {
+  background: none; border: none; color: #64748b;
+  font-size: 1rem; cursor: pointer; padding: 4px 10px;
+  border-radius: 8px; transition: all .2s;
+}
+.bnav-btn:hover { background: rgba(255,255,255,.08); color: #f1f5f9; }
+#dots-container { display: flex; gap: 6px; max-width: 300px; flex-wrap: wrap; justify-content: center; }
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #1e293b; border: 1px solid rgba(255,255,255,.15);
+  cursor: pointer; transition: all .25s; flex-shrink: 0;
+}
+.dot.active { transform: scale(1.4); }
+#slide-counter {
+  font-size: .72rem; color: #64748b; font-weight: 700;
+  min-width: 52px; text-align: center;
+}
+#global-counter {
+  font-size: .65rem; color: #475569; font-weight: 600;
+  min-width: 48px; text-align: center;
+  border-left: 1px solid rgba(255,255,255,.08); padding-left: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION LABEL (top-right)
+═══════════════════════════════════════════════════════════════ */
+#section-label {
+  position: fixed; top: 52px; right: 18px; z-index: 200;
+  font-size: .63rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #475569;
+  transition: color .3s;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REUSABLE LAYOUT COMPONENTS
+═══════════════════════════════════════════════════════════════ */
+.sc { max-width: 1080px; margin: auto; width: 100%; }
+.slide-header { margin-bottom: 28px; text-align: center; }
+.slide-num { font-size: .68rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 7px; }
+.slide-header h2 { font-size: clamp(1.6rem, 2.8vw, 2.5rem); font-weight: 800; }
+.slide-header h2 em { font-style: normal; }
+.divider { width: 52px; height: 3px; border-radius: 2px; margin: 10px auto 0; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; width: 100%; }
+
+.card {
+  background: #1e293b; border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px; padding: 22px;
+}
+.card h3 { font-size: .9rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 7px; }
+.card ul { padding-left: 17px; }
+.card li { font-size: .82rem; color: #94a3b8; margin-bottom: 7px; line-height: 1.6; }
+.card li strong { color: #f1f5f9; }
+.card p { font-size: .83rem; color: #94a3b8; line-height: 1.65; }
+
+.obj-list { width: 100%; }
+.obj-item {
+  display: flex; align-items: flex-start; gap: 13px;
+  background: #1e293b; border: 1px solid rgba(255,255,255,.08);
+  border-radius: 11px; padding: 13px 16px; margin-bottom: 9px;
+  transition: border-color .2s;
+}
+.obj-item:hover { border-color: rgba(255,255,255,.2); }
+.obj-num {
+  min-width: 30px; height: 30px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .78rem; font-weight: 800; color: white; flex-shrink: 0;
+}
+.obj-text { font-size: .82rem; color: #94a3b8; line-height: 1.6; }
+.obj-text strong { color: #f1f5f9; }
+
+.kpi-row { display: flex; gap: 13px; width: 100%; }
+.kpi-card { flex: 1; background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 13px; padding: 16px 13px; text-align: center; }
+.kpi-val { font-size: 1.45rem; font-weight: 900; margin-bottom: 4px; }
+.kpi-label { font-size: .68rem; color: #94a3b8; line-height: 1.4; }
+
+.pilares { display: flex; gap: 14px; width: 100%; }
+.pilar {
+  flex: 1; background: #1e293b; border: 1px solid rgba(255,255,255,.08);
+  border-radius: 13px; padding: 22px 18px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.pilar::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.pilar .pilar-icon { font-size: 1.9rem; margin-bottom: 9px; }
+.pilar h4 { font-size: .87rem; font-weight: 700; margin-bottom: 7px; }
+.pilar p { font-size: .75rem; color: #94a3b8; line-height: 1.5; }
+
+.team-table { width: 100%; border-collapse: separate; border-spacing: 0 7px; }
+.team-table thead th { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #64748b; padding: 0 14px 8px; text-align: left; }
+.team-table tbody tr { background: #1e293b; }
+.team-table tbody td { padding: 12px 14px; font-size: .82rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); }
+.team-table tbody td:first-child { border-left: 1px solid rgba(255,255,255,.07); border-radius: 10px 0 0 10px; color: #f1f5f9; font-weight: 600; }
+.team-table tbody td:last-child { border-right: 1px solid rgba(255,255,255,.07); border-radius: 0 10px 10px 0; }
+.rol-badge { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: .68rem; font-weight: 700; background: rgba(255,255,255,.08); white-space: nowrap; }
+
+/* PORTADA ROL */
+.slide-portada { text-align: center; }
+.avatar-ring {
+  width: 90px; height: 90px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 2.8rem;
+  margin: 0 auto 20px;
+  animation: pulse-ring 2.5s infinite;
+}
+@keyframes pulse-ring {
+  0%,100%{ box-shadow: 0 0 30px var(--glow,rgba(99,102,241,.4)); }
+  50%{ box-shadow: 0 0 55px var(--glow,rgba(99,102,241,.65)); }
+}
+.role-pill { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px; }
+.portada-name { font-size: clamp(1.6rem, 3.2vw, 2.7rem); font-weight: 900; margin-bottom: 7px; background: linear-gradient(135deg,#fff,var(--a2,#818cf8)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.portada-subt { font-size: .98rem; color: #94a3b8; margin-bottom: 28px; }
+.chips { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
+.chip { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 9px; padding: 7px 14px; font-size: .76rem; color: #94a3b8; }
+
+/* APORTE BOX */
+.aporte-box {
+  border-radius: 11px; padding: 16px 20px; margin-bottom: 13px;
+  border-left: 4px solid;
+}
+.aporte-box h4 { font-size: .87rem; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 7px; }
+.aporte-box p { font-size: .81rem; color: #94a3b8; line-height: 1.6; }
+.aporte-box code { border-radius: 4px; padding: 1px 5px; font-family: 'JetBrains Mono', monospace; font-size: .79rem; }
+
+/* CODE BLOCK */
+.code-block {
+  background: #080f1e; border: 1px solid rgba(255,255,255,.08); border-radius: 11px;
+  padding: 14px; font-family: 'JetBrains Mono', monospace; font-size: .73rem; line-height: 1.7;
+  color: #a5b4fc; overflow: hidden; width: 100%;
+}
+.kw { color: #34d399; } .str { color: #fbbf24; } .cm { color: #475569; font-style:italic; }
+.fn { color: #60a5fa; } .num { color: #f472b6; } .cls { color: #e879f9; }
+
+/* DB SCHEMA */
+.db-table { background: #080f1e; border: 1px solid rgba(255,255,255,.08); border-radius: 11px; overflow: hidden; width: 100%; }
+.db-header { padding: 9px 14px; font-weight: 700; font-size: .82rem; display: flex; align-items: center; gap: 7px; }
+.db-field { padding: 7px 14px; font-size: .75rem; font-family: 'JetBrains Mono', monospace; border-top: 1px solid rgba(255,255,255,.06); display: flex; gap: 10px; }
+.fld-name { color: #38bdf8; min-width: 125px; } .fk { color: #10b981; } .pk { font-weight: 700; }
+.fld-type { color: #a78bfa; min-width: 95px; } .fld-desc { color: #64748b; }
+
+/* ARCH LAYER */
+.arch-layer {
+  background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 11px;
+  padding: 14px 18px; margin-bottom: 9px; display: flex; gap: 14px; align-items: center; width: 100%;
+  transition: border-color .2s;
+}
+.arch-layer:hover { border-color: rgba(255,255,255,.2); }
+.arch-icon { font-size: 1.5rem; min-width: 34px; text-align: center; }
+.arch-name { font-weight: 700; font-size: .87rem; min-width: 130px; }
+.arch-comp { font-size: .76rem; font-family: 'JetBrains Mono', monospace; color: #60a5fa; min-width: 260px; }
+.arch-resp { font-size: .77rem; color: #94a3b8; }
+
+/* FEATURE GRID */
+.feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; width: 100%; }
+.feat-item {
+  background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 11px;
+  padding: 14px 16px; display: flex; gap: 11px; align-items: flex-start; transition: border-color .2s;
+}
+.feat-item:hover { border-color: rgba(255,255,255,.2); }
+.feat-icon { font-size: 1.3rem; min-width: 26px; }
+.feat-text h4 { font-size: .84rem; font-weight: 700; margin-bottom: 4px; }
+.feat-text p { font-size: .76rem; color: #94a3b8; line-height: 1.5; }
+.feat-text code { border-radius: 4px; padding: 1px 5px; font-family: 'JetBrains Mono', monospace; font-size: .75rem; }
+
+/* FLOW */
+.flow { display: flex; align-items: center; gap: 7px; width: 100%; overflow-x: auto; padding: 8px 0; }
+.flow-step { min-width: 98px; background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 9px; padding: 10px 9px; text-align: center; flex-shrink: 0; }
+.flow-step .s-icon { font-size: 1.3rem; margin-bottom: 5px; }
+.flow-step .s-name { font-size: .68rem; font-weight: 700; margin-bottom: 2px; }
+.flow-step .s-desc { font-size: .62rem; color: #94a3b8; line-height: 1.3; }
+.flow-arrow { font-size: 1rem; color: #475569; flex-shrink: 0; }
+
+/* TEST TABLE */
+.test-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+.test-table thead th { font-size: .68rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .1em; padding: 0 10px 8px; text-align: left; }
+.test-table tbody tr { background: #1e293b; }
+.test-table tbody td { padding: 10px; font-size: .78rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); }
+.test-table tbody td:first-child { border-left: 1px solid rgba(255,255,255,.07); border-radius: 10px 0 0 10px; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: .72rem; }
+.test-table tbody td:last-child { border-right: 1px solid rgba(255,255,255,.07); border-radius: 0 10px 10px 0; }
+.badge-pass { background: rgba(16,185,129,.15); color: #34d399; border: 1px solid rgba(16,185,129,.3); padding: 2px 9px; border-radius: 99px; font-size: .68rem; font-weight: 700; white-space: nowrap; }
+.badge-warn { background: rgba(245,158,11,.15); color: #fbbf24; border: 1px solid rgba(245,158,11,.3); padding: 2px 9px; border-radius: 99px; font-size: .68rem; font-weight: 700; white-space: nowrap; }
+
+/* RNF */
+.rnf-item { display: flex; align-items: flex-start; gap: 13px; background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 11px; padding: 11px 14px; margin-bottom: 8px; transition: border-color .2s; }
+.rnf-item:hover { border-color: rgba(255,255,255,.18); }
+.rnf-id { min-width: 58px; font-size: .68rem; font-weight: 800; border-radius: 7px; padding: 4px 7px; text-align: center; font-family: 'JetBrains Mono', monospace; }
+.rnf-content h4 { font-size: .82rem; font-weight: 700; margin-bottom: 3px; }
+.rnf-content .metric { font-size: .72rem; color: #64748b; font-style: italic; margin-top: 2px; }
+
+/* METO PILLS */
+.meto-list { display: flex; flex-wrap: wrap; gap: 9px; }
+.meto-pill { display: flex; align-items: center; gap: 7px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 9px; padding: 7px 13px; font-size: .78rem; color: #94a3b8; }
+
+/* MOCK GRID preview */
+.mock-header { background: #1e293b; color: white; display: grid; padding: 9px 11px; font-weight: 700; font-size: .7rem; letter-spacing: .04em; }
+.mock-row { background: #080f1e; display: grid; padding: 7px 11px; border-top: 1px solid #1e293b; color: #94a3b8; font-size: .74rem; }
+.mock-progress { height: 7px; background: #1e293b; border-radius: 3px; overflow: hidden; flex: 1; }
+.mock-bar { height: 100%; border-radius: 3px; }
+
+/* STYLE SWATCH */
+.swatch-row { display: flex; gap: 9px; flex-wrap: wrap; margin-top: 6px; }
+.swatch-item { display: flex; align-items: center; gap: 7px; background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 9px; padding: 7px 11px; }
+.swatch { width: 18px; height: 18px; border-radius: 4px; }
+.swatch-name { font-size: .72rem; color: #94a3b8; }
+
+/* MOCK BUTTONS */
+.mock-btn { display: inline-block; padding: 5px 13px; border-radius: 7px; font-size: .71rem; font-weight: 700; margin: 2px; }
+
+/* INFO GRID (portada) */
+.info-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; margin-top: 7px; }
+.info-card { background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 11px; padding: 14px 18px; text-align: center; }
+.info-card .label { font-size: .65rem; color: #64748b; text-transform: uppercase; letter-spacing: .09em; margin-bottom: 4px; }
+.info-card .value { font-size: .9rem; font-weight: 700; }
+
+/* US items */
+.us-item { display: flex; align-items: flex-start; gap: 12px; background: #1e293b; border: 1px solid rgba(255,255,255,.08); border-radius: 11px; padding: 12px 15px; margin-bottom: 8px; transition: border-color .2s; }
+.us-item:hover { border-color: rgba(255,255,255,.2); }
+.us-id { min-width: 52px; font-size: .68rem; font-weight: 800; border-radius: 7px; padding: 4px 7px; text-align: center; font-family: 'JetBrains Mono', monospace; }
+.us-text { font-size: .82rem; color: #94a3b8; line-height: 1.6; }
+.us-text strong { color: #f1f5f9; }
+
+/* REQ TABLE */
+.req-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+.req-table thead th { font-size: .68rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: .09em; padding: 0 11px 8px; text-align: left; }
+.req-table tbody tr { background: #1e293b; }
+.req-table tbody td { padding: 10px 11px; font-size: .79rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); }
+.req-table tbody td:first-child { border-left: 1px solid rgba(255,255,255,.07); border-radius: 10px 0 0 10px; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: .73rem; }
+.req-table tbody td:last-child { border-right: 1px solid rgba(255,255,255,.07); border-radius: 0 10px 10px 0; }
+code { border-radius: 4px; padding: 1px 5px; font-family: 'JetBrains Mono', monospace; font-size: .8rem; }
+
+@keyframes fadeIn { from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);} }
+
+/* ════════════════════════════════════════════════
+   PER-SECTION THEMING (accent colors)
+════════════════════════════════════════════════ */
+/* S0: Intro ─ indigo */
+.s0 { --a:#6366f1; --a2:#818cf8; --glow:rgba(99,102,241,.5); }
+.s0 .slide-num { color:#818cf8; }
+.s0 .slide-header h2 em { color:#818cf8; }
+.s0 .divider { background: linear-gradient(90deg,#6366f1,#818cf8); }
+.s0 .obj-num { background: linear-gradient(135deg,#6366f1,#818cf8); }
+.s0 .pilar:nth-child(1)::before { background:#6366f1; }
+.s0 .pilar:nth-child(2)::before { background:#f59e0b; }
+.s0 .pilar:nth-child(3)::before { background:#10b981; }
+.s0 .kpi-val { color:#818cf8; }
+.s0 .info-card .value { color:#818cf8; }
+.s0 .rol-badge { background:rgba(99,102,241,.15); color:#818cf8; }
+.s0 .meto-pill { background:rgba(99,102,241,.1); border-color:rgba(99,102,241,.25); }
+.s0 .card h3 { color:#818cf8; }
+.s0 .card li strong { color:#e2e8f0; }
+#progress-fill.c0 { background: linear-gradient(90deg,#6366f1,#818cf8); }
+
+/* S1: Huichi ─ violet */
+.s1 { --a:#8b5cf6; --a2:#a78bfa; --glow:rgba(139,92,246,.5); }
+.s1 .slide-num { color:#a78bfa; }
+.s1 .slide-header h2 em { color:#a78bfa; }
+.s1 .divider { background: linear-gradient(90deg,#8b5cf6,#a78bfa); }
+.s1 .obj-num { background: linear-gradient(135deg,#8b5cf6,#a78bfa); }
+.s1 .kpi-val,.s1 .card h3,.s1 .us-id,.s1 .rnf-id { color:#a78bfa; }
+.s1 .us-id,.s1 .rnf-id { background:rgba(139,92,246,.15); }
+.s1 .avatar-ring { background: linear-gradient(135deg,#8b5cf6,#a78bfa); --glow:rgba(139,92,246,.5); }
+.s1 .role-pill,.s1 .portada-subt { color:#a78bfa; }
+.s1 .aporte-box { background:linear-gradient(135deg,rgba(139,92,246,.1),rgba(167,139,250,.05)); border-left-color:#8b5cf6; }
+.s1 .aporte-box h4,.s1 .aporte-box code { color:#a78bfa; }
+.s1 .aporte-box code { background:rgba(139,92,246,.15); }
+#progress-fill.c1 { background: linear-gradient(90deg,#8b5cf6,#a78bfa); }
+
+/* S2: Quispe ─ sky */
+.s2 { --a:#0ea5e9; --a2:#38bdf8; --glow:rgba(14,165,233,.5); }
+.s2 .slide-num { color:#38bdf8; }
+.s2 .slide-header h2 em { color:#38bdf8; }
+.s2 .divider { background: linear-gradient(90deg,#0ea5e9,#38bdf8); }
+.s2 .obj-num { background: linear-gradient(135deg,#0ea5e9,#38bdf8); }
+.s2 .kpi-val,.s2 .card h3 { color:#38bdf8; }
+.s2 .avatar-ring { background: linear-gradient(135deg,#0ea5e9,#38bdf8); --glow:rgba(14,165,233,.5); }
+.s2 .role-pill,.s2 .portada-subt { color:#38bdf8; }
+.s2 .aporte-box { background:linear-gradient(135deg,rgba(14,165,233,.1),rgba(56,189,248,.05)); border-left-color:#0ea5e9; }
+.s2 .aporte-box h4,.s2 .aporte-box code { color:#38bdf8; }
+.s2 .aporte-box code { background:rgba(14,165,233,.15); }
+.s2 .feat-text code { color:#38bdf8; background:rgba(14,165,233,.12); }
+#progress-fill.c2 { background: linear-gradient(90deg,#0ea5e9,#38bdf8); }
+
+/* S3: Pacori ─ emerald */
+.s3 { --a:#10b981; --a2:#34d399; --glow:rgba(16,185,129,.5); }
+.s3 .slide-num { color:#34d399; }
+.s3 .slide-header h2 em { color:#34d399; }
+.s3 .divider { background: linear-gradient(90deg,#10b981,#34d399); }
+.s3 .obj-num { background: linear-gradient(135deg,#10b981,#34d399); }
+.s3 .kpi-val,.s3 .card h3 { color:#34d399; }
+.s3 .avatar-ring { background: linear-gradient(135deg,#10b981,#34d399); --glow:rgba(16,185,129,.5); }
+.s3 .role-pill,.s3 .portada-subt { color:#34d399; }
+.s3 .aporte-box { background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(52,211,153,.05)); border-left-color:#10b981; }
+.s3 .aporte-box h4,.s3 .aporte-box code { color:#34d399; }
+.s3 .aporte-box code { background:rgba(16,185,129,.15); }
+.s3 .feat-text code { color:#34d399; background:rgba(16,185,129,.12); }
+.s3 .flow-arrow { color:#34d399; }
+.s3 .flow-step .s-name { color:#34d399; }
+#progress-fill.c3 { background: linear-gradient(90deg,#10b981,#34d399); }
+
+/* S4: Calsina ─ amber */
+.s4 { --a:#f59e0b; --a2:#fbbf24; --glow:rgba(245,158,11,.5); }
+.s4 .slide-num { color:#fbbf24; }
+.s4 .slide-header h2 em { color:#fbbf24; }
+.s4 .divider { background: linear-gradient(90deg,#f59e0b,#fbbf24); }
+.s4 .obj-num { background: linear-gradient(135deg,#f59e0b,#fbbf24); }
+.s4 .kpi-val,.s4 .card h3,.s4 .arch-name { color:#fbbf24; }
+.s4 .avatar-ring { background: linear-gradient(135deg,#f59e0b,#fbbf24); --glow:rgba(245,158,11,.5); }
+.s4 .role-pill,.s4 .portada-subt { color:#fbbf24; }
+.s4 .aporte-box { background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(251,191,36,.05)); border-left-color:#f59e0b; }
+.s4 .aporte-box h4,.s4 .aporte-box code { color:#fbbf24; }
+.s4 .aporte-box code { background:rgba(245,158,11,.15); }
+.s4 .db-header { background:rgba(245,158,11,.12); color:#fbbf24; }
+.s4 .fld-name { color:#38bdf8; } .s4 .fld-type { color:#a78bfa; }
+#progress-fill.c4 { background: linear-gradient(90deg,#f59e0b,#fbbf24); }
+
+/* S5: Mamani ─ rose */
+.s5 { --a:#ec4899; --a2:#f472b6; --glow:rgba(236,72,153,.5); }
+.s5 .slide-num { color:#f472b6; }
+.s5 .slide-header h2 em { color:#f472b6; }
+.s5 .divider { background: linear-gradient(90deg,#ec4899,#f472b6); }
+.s5 .obj-num { background: linear-gradient(135deg,#ec4899,#f472b6); }
+.s5 .kpi-val,.s5 .card h3 { color:#f472b6; }
+.s5 .avatar-ring { background: linear-gradient(135deg,#ec4899,#f472b6); --glow:rgba(236,72,153,.5); }
+.s5 .role-pill,.s5 .portada-subt { color:#f472b6; }
+.s5 .aporte-box { background:linear-gradient(135deg,rgba(236,72,153,.1),rgba(244,114,182,.05)); border-left-color:#ec4899; }
+.s5 .aporte-box h4,.s5 .aporte-box code { color:#f472b6; }
+.s5 .aporte-box code { background:rgba(236,72,153,.15); }
+.s5 .rnf-id { background:rgba(236,72,153,.15); color:#f472b6; }
+.s5 .test-table tbody td:first-child { color:#f472b6; }
+#progress-fill.c5 { background: linear-gradient(90deg,#ec4899,#f472b6); }
+</style>
 </head>
-
 <body>
 
-  <!-- BARRA DE PROGRESO -->
-  <div class="progress">
-    <div class="progress-bar" id="progressBar"></div>
+<!-- ═══════════════ TOP BAR ═══════════════ -->
+<div id="topbar">
+  <div id="progress-track"><div id="progress-fill" class="c0"></div></div>
+  <div id="section-tabs">
+    <div class="stab active" data-sec="0" style="--stab-color:#818cf8">
+      <span class="stab-dot"></span><span class="stab-icon">📋</span>Intro &amp; Objetivos
+    </div>
+    <div class="stab" data-sec="1" style="--stab-color:#a78bfa">
+      <span class="stab-dot"></span><span class="stab-icon">🎯</span>Huichi · Scrum Master
+    </div>
+    <div class="stab" data-sec="2" style="--stab-color:#38bdf8">
+      <span class="stab-dot"></span><span class="stab-icon">🎨</span>Quispe · Frontend
+    </div>
+    <div class="stab" data-sec="3" style="--stab-color:#34d399">
+      <span class="stab-dot"></span><span class="stab-icon">⚙️</span>Pacori · Backend
+    </div>
+    <div class="stab" data-sec="4" style="--stab-color:#fbbf24">
+      <span class="stab-dot"></span><span class="stab-icon">🏗️</span>Calsina · Arquitecto
+    </div>
+    <div class="stab" data-sec="5" style="--stab-color:#f472b6">
+      <span class="stab-dot"></span><span class="stab-icon">🧪</span>Mamani · QA Tester
+    </div>
   </div>
+</div>
+<div id="section-label">VIDEOFORGE · 2026</div>
 
-  <!-- PANEL DE CONTROLES FLOTANTES -->
-  <div class="control-panel glass">
-    <button class="ctrl-btn" id="ctrl-prev" title="Diapositiva Anterior (Flecha Arriba / Rueda Arriba)">▲</button>
-    <button class="ctrl-btn" id="ctrl-play" title="Reproducción Automática (7s)">▶</button>
-    <button class="ctrl-btn" id="ctrl-next" title="Diapositiva Siguiente (Flecha Abajo / Espacio / Rueda Abajo)">▼</button>
-    <button class="ctrl-btn" id="ctrl-full" title="Pantalla Completa">⛶</button>
-    <div class="ctrl-info"><span id="ctrl-current">01</span> / <span id="ctrl-total">18</span></div>
-  </div>
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN 0 – INTRODUCCIÓN & OBJETIVOS
+════════════════════════════════════════════════════════ -->
+<div class="section s0 active-section" id="sec0">
 
-  <!-- NAVEGACIÓN POR PUNTOS -->
-  <div class="dot-navigation" id="dotNavigation"></div>
-
-  <!-- PRESENTACIÓN -->
-  <div class="presentation">
-    <div class="slides" id="slides">
-
-      <!-- ===================================== -->
-      <!-- SLIDE 1: PORTADA (SOLO LETRAS, TÍTULO ÚNICO GRANDE) -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content cover">
-          <div class="cover-box-clean">
-            <h1>
-              UNIVERSIDAD NACIONAL DE JULIACA
-              <span>Facultad de Ciencias de la Ingeniería</span>
-              <span>Escuela Profesional de software y sistemas</span>
-            </h1>
-            
-            <div style="width: 80px; height: 2px; background: #1d4ed8; margin: 10px 0;"></div>
-
-            <p class="subtitle-clean">
-              Desarrollo de un Convertidor Multimedia basado en FFmpeg y C# utilizando el Patrón Arquitectónico MVC y la Metodología Ágil Scrum (Sprint 0)
-            </p>
-
-            <div class="info-list-clean">
-              <div class="info-item-clean">
-                <span>Proyecto</span>
-                <strong>VIDEOFORGE 2.0</strong>
-              </div>
-              <div class="info-item-clean">
-                <span>Curso</span>
-                <strong>Dinámica de Sistemas (VII Ciclo)</strong>
-              </div>
-              <div class="info-item-clean">
-                <span>Docente</span>
-                <strong>M.Sc. Juan Carlos Pinto Larico</strong>
-              </div>
-              <div class="info-item-clean">
-                <span>Año Académico</span>
-                <strong>2026 - I</strong>
-              </div>
-            </div>
-
-            <div style="margin-top: 15px;">
-              <span style="display: block; font-size: 0.72rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 0.5px;">Equipo de Desarrollo (Sprint Team)</span>
-              <strong style="font-size: 0.82rem; color: #334155; font-weight: 500;">
-                Huichi Calderon Y. • Calsina Pari J. • Mamani Vilca G. • Pacori Ray T. • Quispe Quispe D.
-              </strong>
-            </div>
-          </div>
-        </div>
-        <div class="footer">1 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 2: ÍNDICE -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Índice de la Sustentación</h2>
-          <p>Haz clic en cualquiera de las secciones para saltar directamente a ella durante la exposición.</p>
-          
-          <div class="index-grid" id="indexGrid">
-            <!-- Cargado dinámicamente en Javascript -->
-          </div>
-        </div>
-        <div class="footer">2 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 3: INTRODUCCIÓN -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Introducción del Proyecto</h2>
-          <div class="card">
-            <p style="color: #334155;">
-              En el entorno académico y profesional actual, la incompatibilidad de formatos multimedia representa un obstáculo diario. <span class="accent-color">VIDEOFORGE 2.0</span> nace como una solución de escritorio robusta en C# que encapsula comandos complejos de transcodificación mediante el motor Open Source de <span class="accent-color">FFmpeg 7.x</span>, eliminando la dependencia de wrappers ineficientes y ofreciendo control a nivel del sistema operativo.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <div class="card">
-              <h3>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
-                Gestión de Formatos
-              </h3>
-              <p>Conversiones cruzadas fluidas entre extensiones líderes: MP4, MKV, AVI, MOV, FLV, WMV y WebM sin pérdida de calidad.</p>
-            </div>
-
-            <div class="card">
-              <h3>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 6h-4v2h4v2h-4v2h4v2H9V7h6v2z"/></svg>
-                Control Concurrente
-              </h3>
-              <p>Procesamiento paralelo asíncrono regulado por semáforos lógicos para optimizar el consumo de la CPU del usuario.</p>
-            </div>
-
-            <div class="card">
-              <h3>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
-                Mantenibilidad MVC
-              </h3>
-              <p>Arquitectura formal que separa estrictamente la visualización (UI), los modelos de datos y la lógica del convertidor.</p>
-            </div>
-          </div>
-        </div>
-        <div class="footer">3 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 4: PROBLEMÁTICA Y SOLUCIÓN -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Problemática vs Solución</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3 style="color:#dc2626;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/></svg>
-                La Problemática
-              </h3>
-              <ul>
-                <li><strong>Incompatibilidad multimedia:</strong> Dificultad recurrente de estudiantes y docentes en el uso de plataformas virtuales de la UNAJ.</li>
-                <li><strong>Bloqueo del sistema:</strong> Los convertidores comunes saturan los núcleos de la CPU, provocando el congelamiento completo del SO.</li>
-                <li><strong>Cero aceleración:</strong> Desaprovechamiento de las capacidades de aceleración gráfica por GPU disponibles en las computadoras.</li>
-                <li><strong>Pérdida de avances:</strong> Ante conversiones canceladas, los archivos intermedios quedan corruptos o consumiendo espacio en disco.</li>
-              </ul>
-            </div>
-
-            <div class="card" style="border-color: rgba(29, 78, 216, 0.15);">
-              <h3 style="color:#1d4ed8;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                Nuestra Solución
-              </h3>
-              <ul>
-                <li><strong>Transcodificación asíncrona:</strong> Procesamiento desacoplado de la interfaz gráfica usando tareas en segundo plano.</li>
-                <li><strong>Gestión de concurrencia:</strong> Implementación de semáforos para limitar dinámicamente las conversiones paralelas.</li>
-                <li><strong>Detección de GPU (WMI):</strong> Selección autónoma de codecs acelerados (NVENC, AMF, QSV) según el fabricante.</li>
-                <li><strong>Control nativo del proceso:</strong> Capacidad de pausar/reanudar el flujo suspendiendo los hilos a nivel del kernel de Windows.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer">4 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 5: OBJETIVOS -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Objetivos del Proyecto</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3>Objetivo General</h3>
-              <p style="font-size: 1.05rem; color:#1e293b; line-height: 1.8;">
-                Aplicar de manera práctica los procesos de la <span class="accent-color">Ingeniería de Software</span> para diseñar e implementar un sistema de escritorio robusto de conversión de formatos multimedia en C# con arquitectura MVC, que optimice los recursos locales mediante concurrencia y aceleración por hardware.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Objetivos Específicos</h3>
-              <ul>
-                <li><span class="accent-color">Estructurar</span> los requisitos del sistema organizados en un Product Backlog bajo Scrum.</li>
-                <li><span class="accent-color">Diseñar</span> la arquitectura y persistencia de datos mediante diagramas UML y entidad-relación en MySQL 8.0.</li>
-                <li><span class="accent-color">Implementar</span> la lógica de hilos asíncronos y semáforos lógicos (`SemaphoreSlim`) para regular la multitarea.</li>
-                <li><span class="accent-color">Integrar</span> comandos nativos de FFmpeg con soporte de aceleración GPU de NVIDIA, AMD e Intel.</li>
-                <li><span class="accent-color">Garantizar</span> seguridad de acceso mediante hashing de contraseñas con SHA-256 a nivel de base de datos.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer">5 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 6: VISIÓN DEL PRODUCTO -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Visión del Producto</h2>
-          <p>Establecida sobre 3 pilares clave descritos en el Anexo 5 del proyecto:</p>
-          
-          <div class="grid-3">
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Pilar 1</span>
-              <h3>Rendimiento Adaptativo</h3>
-              <p>
-                El sistema detecta automáticamente la cantidad de RAM, núcleos lógicos de la CPU y la presencia de aceleración por GPU. Ajusta dinámicamente los parámetros de transcodificación para no mermar la estabilidad del equipo.
-              </p>
-            </div>
-
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Pilar 2</span>
-              <h3>Experiencia MDI</h3>
-              <p>
-                Diseño de interfaz profesional tipo Dashboard que centraliza todas las operaciones (conversión, registro de usuarios, configuración) en formularios MDI, impidiendo aperturas repetidas de la misma ventana (control de unicidad).
-              </p>
-            </div>
-
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Pilar 3</span>
-              <h3>Auditoría y Trazabilidad</h3>
-              <p>
-                Cada conversión iniciada queda registrada en la base de datos MySQL (identificando usuario, formato de origen, formato de salida, peso del archivo, estado final y fecha), garantizando auditoría completa del uso del sistema.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="footer">6 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 7: REQUISITOS FUNCIONALES -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Requisitos Funcionales (RF)</h2>
-          <div class="table-container">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Requisito Funcional</th>
-                  <th>Descripción del Comportamiento del Sistema</th>
-                  <th>Criterio de Aceptación</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>RF-01</strong></td>
-                  <td>Autenticación de Usuarios</td>
-                  <td>Valida credenciales en MySQL utilizando hashing SHA-256.</td>
-                  <td>Acceso al sistema si los datos son correctos; error si no.</td>
-                </tr>
-                <tr>
-                  <td><strong>RF-03</strong></td>
-                  <td>Configuración de la Base de Datos</td>
-                  <td>Form_Conex permite guardar parámetros de conexión en db_config.ini.</td>
-                  <td>Prueba de conexión exitosa antes de escribir el archivo .ini.</td>
-                </tr>
-                <tr>
-                  <td><strong>RF-04</strong></td>
-                  <td>Carga y Escaneo de Videos</td>
-                  <td>Escanea la carpeta origen listando extensiones compatibles en DataGridView.</td>
-                  <td>Visualiza Nombre, Tipo y Peso en bytes de cada archivo.</td>
-                </tr>
-                <tr>
-                  <td><strong>RF-06</strong></td>
-                  <td>Conversión Paralela</td>
-                  <td>Procesa múltiples videos asíncronamente con límite de hilos activos.</td>
-                  <td>El sistema no se cuelga y los hilos en cola esperan su turno.</td>
-                </tr>
-                <tr>
-                  <td><strong>RF-08</strong></td>
-                  <td>Pausa y Reanudación</td>
-                  <td>Detiene/Continúa los subprocesos de FFmpeg desde la UI en tiempo real.</td>
-                  <td>Uso de llamadas nativas de Windows sin perder avance del archivo.</td>
-                </tr>
-                <tr>
-                  <td><strong>RF-10</strong></td>
-                  <td>Aceleración por GPU</td>
-                  <td>Autodetecta tarjetas gráficas e inyecta parámetros de códecs de hardware.</td>
-                  <td>Usa h264_nvenc, h264_amf o h264_qsv si están disponibles.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="footer">7 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 8: REQUISITOS NO FUNCIONALES -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Requisitos No Funcionales (RNF)</h2>
-          <div class="grid-3">
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Rendimiento (RNF-01)</span>
-              <h3>Tasa de Procesamiento</h3>
-              <p>
-                Conversión menor a <span class="accent-color">2 minutos por 1 GB</span> de video usando CPU pura, y menor a <span class="accent-color">45 segundos por 1 GB</span> al habilitar aceleración por hardware GPU.
-              </p>
-            </div>
-
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Usabilidad (RNF-02)</span>
-              <h3>Curva de Aprendizaje</h3>
-              <p>
-                La interfaz gráfica intuitiva tipo Dashboard debe asegurar que un usuario común aprenda a operar las funciones de conversión en menos de <span class="accent-color">10 minutos</span> sin entrenamiento previo.
-              </p>
-            </div>
-
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Seguridad (RNF-03)</span>
-              <h3>Protección de Accesos</h3>
-              <p>
-                Las contraseñas se almacenan obligatoriamente con hash <span class="accent-color">SHA-256</span> en base de datos. Las sesiones se restringen mediante perfiles de acceso (Nivel 1: Administrador, Nivel 2: Estándar).
-              </p>
-            </div>
-
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Confiabilidad (RNF-04)</span>
-              <h3>Tolerancia a Fallos</h3>
-              <p>
-                Cobertura del 100% de bloques estructurados `try-catch`. Si ocurre un error o se cancela el proceso, se ejecuta la remoción automática de fragmentos de video corruptos en disco.
-              </p>
-            </div>
-
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Escalabilidad (RNF-05)</span>
-              <h3>Multitarea Controlada</h3>
-              <p>
-                Límite configurable de hilos lógicos en la cola. La transcodificación masiva no debe elevar el uso de CPU a niveles de inestabilidad general del sistema operativo anfitrión.
-              </p>
-            </div>
-
-            <div class="card">
-              <span class="badge" style="margin-bottom: 5px;">Portabilidad (RNF-08)</span>
-              <h3>Configuración Externa</h3>
-              <p>
-                Toda la cadena de conexión de MySQL es editable mediante un archivo de configuración `.ini` externo. El sistema se puede redirigir a un servidor diferente sin necesidad de recompilar.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="footer">8 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 9: PLANIFICACIÓN - SPRINT 0 -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Planificación y Equipo Scrum</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3>Integrantes del Equipo Sprint 0</h3>
-              <div class="table-container">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Rol Scrum</th>
-                      <th>Miembro</th>
-                      <th>Responsabilidad Principal</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><strong>Product Owner</strong></td>
-                      <td>M.Sc. Juan Carlos Pinto</td>
-                      <td>Define la visión y prioriza el backlog del producto.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Scrum Master</strong></td>
-                      <td>Yelstin Huichi C.</td>
-                      <td>Elabora especificaciones y elimina impedimentos.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Frontend Developer</strong></td>
-                      <td>Diego Quispe Q.</td>
-                      <td>Implementa formularios MDI, estilos UI y experiencia de usuario.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>Backend Developer</strong></td>
-                      <td>Ray Pacori T.</td>
-                      <td>Desarrolla el motor de conversión y subprocesos.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>DB / Architect</strong></td>
-                      <td>Josue Calsina P.</td>
-                      <td>Diseña diagramas de clases, UML y modelo relacional MySQL.</td>
-                    </tr>
-                    <tr>
-                      <td><strong>QA Tester</strong></td>
-                      <td>Gianluigi Mamani V.</td>
-                      <td>Elabora planes de pruebas de rendimiento y de usabilidad.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <div class="card">
-              <h3>Backlog del Producto (Sprint 0 a 3)</h3>
-              <ul style="list-style-type: none; padding-left: 0;">
-                <li style="margin-bottom: 12px;"><span class="badge">Sprint 1</span> <strong>US-01:</strong> Acceso seguro a través de interfaz de Login.</li>
-                <li style="margin-bottom: 12px;"><span class="badge">Sprint 1</span> <strong>US-04:</strong> Exploración e importación de metadatos de archivos.</li>
-                <li style="margin-bottom: 12px;"><span class="badge">Sprint 1</span> <strong>US-06:</strong> Conversión múltiple paralela y progreso global.</li>
-                <li style="margin-bottom: 12px;"><span class="badge">Sprint 2</span> <strong>US-07:</strong> Lógica de pausar y reanudar subprocesos.</li>
-                <li style="margin-bottom: 12px;"><span class="badge">Sprint 2</span> <strong>US-09:</strong> Detección y aceleración por GPU.</li>
-                <li style="margin-bottom: 12px;"><span class="badge badge-alert">Sprint 3</span> <strong>US-10:</strong> Panel de auditoría e historial para administradores.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer">9 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 10: ARQUITECTURA MVC -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Arquitectura del Sistema (MVC)</h2>
-          <div class="grid-4">
-            <div class="card">
-              <h3>Vista (View)</h3>
-              <p style="font-size:0.8rem;">
-                Formularios de escritorio (`Form_Login`, `Form_Principal`, `Form_converter`, `Form_Setup`, `Form_Conex`). Capturan eventos del usuario y dibujan barras gráficas de progreso directamente sobre celdas del DataGridView mediante GDI+.
-              </p>
-            </div>
-            
-            <div class="card">
-              <h3>Controlador</h3>
-              <p style="font-size:0.8rem;">
-                Actúa como puente. Controla el hilo principal y despacha las tareas asíncronas de conversión. Suscribe la interfaz de usuario a los eventos de progreso (`ProgresoReportado`) y excepciones del backend.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Modelo (Model)</h3>
-              <p style="font-size:0.8rem;">
-                Encapsula la estructura de datos y persistencia. Clases estáticas de sesión (`Sesion`), clases de parámetros de transcodificación (`ConfigConversion`), clases de entidad (`MetadatosVideo`) y lógica de encriptación (`Class_Seguridad`).
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Integración</h3>
-              <p style="font-size:0.8rem;">
-                Capa más baja. Se comunica con el ejecutable nativo `ffmpeg.exe` redirigiendo flujos de error. Llama al sistema operativo a través de importaciones de DLLs del Kernel de Windows (`ntdll.dll`).
-              </p>
-            </div>
-          </div>
-
-          <div class="svg-flow-container">
-            <svg class="svg-flow" viewBox="0 0 500 100">
-              <!-- Vista -->
-              <rect x="10" y="30" width="80" height="40" rx="8" fill="rgba(29, 78, 216, 0.06)" stroke="#1d4ed8" stroke-width="1.5"/>
-              <text x="50" y="54" font-size="10" fill="#1e293b" font-weight="600" text-anchor="middle">Vista (Forms)</text>
-              
-              <path d="M 90 50 L 140 50" stroke="#94a3b8" stroke-dasharray="3,3" stroke-width="1.5" />
-              
-              <!-- Controlador -->
-              <rect x="150" y="30" width="90" height="40" rx="8" fill="rgba(2, 132, 199, 0.06)" stroke="#0284c7" stroke-width="1.5"/>
-              <text x="195" y="54" font-size="10" fill="#1e293b" font-weight="600" text-anchor="middle">Controlador</text>
-              
-              <path d="M 240 50 L 290 50" stroke="#94a3b8" stroke-width="1.5" />
-              
-              <!-- Modelo/Procesos -->
-              <rect x="300" y="30" width="90" height="40" rx="8" fill="rgba(79, 70, 229, 0.06)" stroke="#4f46e5" stroke-width="1.5"/>
-              <text x="345" y="54" font-size="10" fill="#1e293b" font-weight="600" text-anchor="middle">Class_Modulo</text>
-              
-              <path d="M 390 50 L 410 50" stroke="#94a3b8" stroke-width="1.5" />
-              
-              <!-- Servidor Externo -->
-              <rect x="420" y="10" width="70" height="35" rx="4" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.1)"/>
-              <text x="455" y="32" font-size="8" fill="#334155" font-weight="600" text-anchor="middle">FFmpeg</text>
-              
-              <rect x="420" y="55" width="70" height="35" rx="4" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.1)"/>
-              <text x="455" y="77" font-size="8" fill="#334155" font-weight="600" text-anchor="middle">MySQL 8</text>
-            </svg>
-          </div>
-        </div>
-        <div class="footer">10 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 11: GESTIÓN DE CONCURRENCIA -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Gestión de Concurrencia</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3>Patrón Productor-Consumidor</h3>
-              <p>
-                Para evitar la saturación de los recursos lógicos de la computadora de escritorio y el consecuente congelamiento de la interfaz de usuario, se implementa una arquitectura basada en tareas asíncronas y semáforos lógicos:
-              </p>
-              <ul>
-                <li><strong>SemaphoreSlim:</strong> Instanciado como `new SemaphoreSlim(maxHilos)` donde `maxHilos` es definido por el usuario o sugerido según los núcleos lógicos detectados.</li>
-                <li><strong>Await asíncrono:</strong> Las tareas en cola ejecutan `await semaforo.WaitAsync()` liberando el hilo principal del procesador.</li>
-                <li><strong>Thread-Safety:</strong> Las actualizaciones del DataGridView del progreso se enrutan mediante `Invoke` o `InvokeRequired` para asegurar la integridad de la UI desde hilos secundarios.</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>Lógica en C# (Form_converter.cs)</h3>
-              <pre>
-<span class="code-comment">// Control dinámico de conversiones simultáneas</span>
-<span class="code-keyword">private</span> <span class="code-keyword">async</span> <span class="code-type">Task</span> <span class="code-method">ProcesarColaConversiones</span>() {
-  <span class="code-type">List</span>&lt;<span class="code-type">Task</span>&gt; tareas = <span class="code-keyword">new</span> <span class="code-type">List</span>&lt;<span class="code-type">Task</span>&gt;();
-  <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> video <span class="code-keyword">in</span> listaVideos) {
-    <span class="code-keyword">await</span> semaforo.<span class="code-method">WaitAsync</span>();
-    tareas.<span class="code-method">Add</span>(<span class="code-type">Task</span>.<span class="code-method">Run</span>(<span class="code-keyword">async</span> () => {
-      <span class="code-keyword">try</span> {
-        <span class="code-keyword">await</span> video.<span class="code-method">Convertir</span>(cts.Token);
-      } <span class="code-keyword">finally</span> {
-        semaforo.<span class="code-method">Release</span>();
-      }
-    }));
-  }
-  <span class="code-keyword">await</span> <span class="code-type">Task</span>.<span class="code-method">WhenAll</span>(tareas);
-}
-              </pre>
-            </div>
-          </div>
-        </div>
-        <div class="footer">11 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 12: INTEGRACIÓN FFmpeg Y GPU -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Integración FFmpeg + GPU</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3>Detección Inteligente de Hardware</h3>
-              <p>
-                El motor analiza la controladora gráfica principal mediante consultas WMI (`Win32_VideoController`). Si se detecta hardware dedicado compatible, se inyecta el códec optimizado en los argumentos de FFmpeg:
-              </p>
-              <ul>
-                <li><strong>NVIDIA (h264_nvenc):</strong> Ejecuta transcodificación directa por hardware utilizando núcleos CUDA y tasa de calidad controlada (`-cq 20`).</li>
-                <li><strong>AMD (h264_amf):</strong> Invoca el Advanced Media Framework para acelerar el procesamiento.</li>
-                <li><strong>Intel (h264_qsv):</strong> Habilita Quick Sync Video para CPUs Intel compatibles.</li>
-                <li><strong>CPU (libx264):</strong> Algoritmo de respaldo de alta calidad (`-crf 20`) si no existe GPU compatible activa.</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>Control Nativo de Subprocesos</h3>
-              <p>
-                La pausa y reanudación no destruyen el subproceso del ejecutable CLI, se suspenden sus hilos lógicos en la memoria RAM llamando al Kernel de Windows:
-              </p>
-              <pre>
-<span class="code-comment">// Importación de APIs nativas de Windows (ntdll.dll)</span>
-[<span class="code-type">DllImport</span>(<span class="code-str">"ntdll.dll"</span>)]
-<span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">extern</span> <span class="code-type">int</span> <span class="code-method">NtSuspendProcess</span>(<span class="code-type">IntPtr</span> processHandle);
-
-[<span class="code-type">DllImport</span>(<span class="code-str">"ntdll.dll"</span>)]
-<span class="code-keyword">public</span> <span class="code-keyword">static</span> <span class="code-keyword">extern</span> <span class="code-type">int</span> <span class="code-method">NtResumeProcess</span>(<span class="code-type">IntPtr</span> processHandle);
-              </pre>
-              <p style="font-size:0.75rem; margin-top:5px; color:#475569;">
-                <strong>Extracción de Progreso:</strong> Mediante expresiones regulares sobre el stream `stderr` de FFmpeg: `Duration:\s*(\d+):(\d+):(\d+)` y `time=(\d+):(\d+):(\d+)`.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="footer">12 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 13: SEGURIDAD Y BASE DE DATOS -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Seguridad y Persistencia BD</h2>
-          <div class="grid-2">
-            <div class="card">
-              <h3>Seguridad en Capas</h3>
-              <ul>
-                <li><strong>SHA-256 Hashing:</strong> Las contraseñas se convierten a hash de 64 caracteres hexadecimales antes de guardarse o validarse. Nunca se almacenan ni viajan en texto plano.</li>
-                <li><strong>Stored Procedures:</strong> Toda la autenticación reside dentro del motor de MySQL mediante el procedimiento `Acceder(Usuario, Clave)`. Evita vulnerabilidades de Inyección SQL.</li>
-                <li><strong>Sesión Estática:</strong> Los datos del usuario logueado quedan protegidos en la clase estática en memoria `Sesion`, restringiendo dinámicamente los menús según el rol de acceso.</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h3>Base de Datos MySQL (db_dinamic)</h3>
-              <pre>
-<span class="code-comment">-- Procedimiento seguro de Login</span>
-<span class="code-keyword">CREATE PROCEDURE</span> Acceder(<span class="code-keyword">IN</span> Usr <span class="code-type">VARCHAR</span>(50), <span class="code-keyword">IN</span> Pwd <span class="code-type">VARCHAR</span>(200))
-<span class="code-keyword">BEGIN</span>
-  <span class="code-keyword">SELECT</span> usersId, grupoId, nombres, nivel 
-  <span class="code-keyword">FROM</span> usuarios 
-  <span class="code-keyword">WHERE</span> users = Usr <span class="code-keyword">AND</span> clave = <span class="code-method">SHA2</span>(Pwd, 256) <span class="code-keyword">AND</span> estado = 1;
-<span class="code-keyword">END</span>;
-              </pre>
-              <p style="font-size:0.75rem; margin-top:5px; color:#475569;">
-                <strong>Estructura Relacional:</strong> Entidad principal `usuarios` con llave foránea a `grupos` para definir validez temporal de acceso e historiales de auditoría de conversión.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="footer">13 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 14: DIAGRAMAS DEL SISTEMA -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Diagramas UML y Modelado</h2>
-          <div class="grid-3">
-            <div class="card">
-              <h3>Casos de Uso (UML)</h3>
-              <p>
-                Define la interacción de dos actores principales: el <strong>Usuario</strong> (autentica, explora videos, selecciona formatos, convierte y pausa) y el <strong>Administrador</strong> (quien administra perfiles de acceso y visualiza el log de auditoría).
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Diagrama de Clases</h3>
-              <p>
-                Detalla la cohesión estructural. Relaciona la clase controladora central `Class_Modulo` con la clase de conexión `Conexion`, la clase estática `Sesion` y el modelo físico de metadatos `MetadatosVideo`.
-              </p>
-            </div>
-
-            <div class="card">
-              <h3>Diagrama de Secuencia</h3>
-              <p>
-                Traza paso a paso la transcodificación de archivos por lotes: El formulario captura el directorio, levanta los metadatos con `FFprobe`, inicializa el semáforo concurrente e inicia hilos del motor FFmpeg secuencialmente.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Diagrama Entidad-Relación (MySQL)</h3>
-            <p style="font-size:0.85rem;">
-              Estructura formal de persistencia. Consiste en la tabla `usuarios` (usersId, grupoId, nombres, users, clave SHA-256, nivel de rol, email, fecha de creación) y la tabla `grupos` (grupoId, usersId, nombreGrupo, fechaInicio, fechaFinal) que limita el acceso según vigencia académica.
-            </p>
-          </div>
-        </div>
-        <div class="footer">14 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 15: MODELO DINÁMICO (FORRESTER) -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Modelo Dinámico Simplificado</h2>
-          <p>Modelado del sistema bajo la metodología de Forrester (Stock & Flow):</p>
-          
-          <div class="table-container">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Concepto Dinámico</th>
-                  <th>Elemento en VIDEOFORGE 2.0</th>
-                  <th>Comportamiento y Regulación</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Stock (Acumulador)</strong></td>
-                  <td>Cantidad de archivos en cola de conversión (`listaVideos`).</td>
-                  <td>Acumula los videos pendientes de procesamiento seleccionados por el usuario.</td>
-                </tr>
-                <tr>
-                  <td><strong>Flujo de Entrada</strong></td>
-                  <td>Tasa de carga de videos desde la carpeta origen.</td>
-                  <td>Incrementa el Stock inicial de videos pendientes en el sistema.</td>
-                </tr>
-                <tr>
-                  <td><strong>Flujo de Salida</strong></td>
-                  <td>Tasa de conversión exitosa por minuto.</td>
-                  <td>Reduce el stock de videos pendientes al terminar el procesamiento de FFmpeg.</td>
-                </tr>
-                <tr>
-                  <td><strong>Regulador</strong></td>
-                  <td>Control de hilos paralelos (`SemaphoreSlim`).</td>
-                  <td>Controla la velocidad del flujo de salida limitando los procesos activos concurrentes.</td>
-                </tr>
-                <tr>
-                  <td><strong>Auxiliar GPU</strong></td>
-                  <td>Acelerador de tasa de salida.</td>
-                  <td>Incrementa la velocidad de salida si se dispone de aceleración de hardware activa.</td>
-                </tr>
-                <tr>
-                  <td><strong>Feedback Negativo</strong></td>
-                  <td>Lazo de balance de carga.</td>
-                  <td>Mayor stock de videos en cola aumenta el tiempo de espera, forzando la cola de procesamiento.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="footer">15 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 16: INDICADORES DE DESEMPEÑO -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Indicadores de Rendimiento (KPIs)</h2>
-          <div class="grid-4">
-            <div class="kpi">
-              <h2>&lt; 2m</h2>
-              <p>Tiempo de conversión por GB usando CPU lógicos normales.</p>
-            </div>
-
-            <div class="kpi">
-              <h2>&lt; 45s</h2>
-              <p>Tiempo de conversión por GB al activar aceleración por GPU.</p>
-            </div>
-
-            <div class="kpi">
-              <h2>&gt; 95%</h2>
-              <p>Tasa de transcodificación exitosa sin errores en lotes.</p>
-            </div>
-
-            <div class="kpi">
-              <h2>&lt; 3s</h2>
-              <p>Tiempo de respuesta de login autenticado contra MySQL.</p>
-            </div>
-          </div>
-          <div class="card">
-            <h3>Satisfacción del Usuario Meta</h3>
-            <p style="font-size:0.9rem;">
-              <strong>Meta de Aceptación:</strong> Calificación promedio <span class="accent-color">mayor o igual a 4.0 / 5.0</span> en encuestas post-uso que midan la legibilidad de la interfaz, el rendimiento y la facilidad del Dashboard MDI para estudiantes de la UNAJ.
-            </p>
-          </div>
-        </div>
-        <div class="footer">16 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 17: ENTREGABLES SPRINT 0 -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content">
-          <h2>Entregables Completados - Sprint 0</h2>
-          <div class="table-container">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Entregable del Proyecto</th>
-                  <th>Responsable del Desarrollo</th>
-                  <th>Estado del Hito</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>E-01</strong></td>
-                  <td>Hoja de Identificación del Proyecto (Anexo 1)</td>
-                  <td>Yelstin Huichi C.</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-                <tr>
-                  <td><strong>E-02</strong></td>
-                  <td>Hoja de Diseño Técnico y Arquitectura (Anexo 2)</td>
-                  <td>Josue Calsina P.</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-                <tr>
-                  <td><strong>E-03</strong></td>
-                  <td>Especificación e Identificación de Requisitos Funcionales</td>
-                  <td>Yelstin Huichi C.</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-                <tr>
-                  <td><strong>E-04</strong></td>
-                  <td>Definición y Mapeo de Requisitos No Funcionales con Métricas</td>
-                  <td>Gianluigi Mamani V.</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-                <tr>
-                  <td><strong>E-05</strong></td>
-                  <td>Documento de Visión de Producto y Flujos de Uso Generales</td>
-                  <td>Diego Quispe Q.</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-                <tr>
-                  <td><strong>E-06</strong></td>
-                  <td>Product Backlog Inicial con Historias de Usuario Priorizadas</td>
-                  <td>Equipo de Desarrollo</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-                <tr>
-                  <td><strong>E-07</strong></td>
-                  <td>Código Base del Sprint 0 (Arquitectura MVC y formularios iniciales)</td>
-                  <td>Ray Pacori / Josue C.</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-                <tr>
-                  <td><strong>E-08</strong></td>
-                  <td>Informe Final de Documentación (PDF base)</td>
-                  <td>Equipo de Desarrollo</td>
-                  <td><span class="accent-color">✓ COMPLETADO</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="footer">17 / 18</div>
-      </section>
-
-      <!-- ===================================== -->
-      <!-- SLIDE 18: CONCLUSIONES Y CIERRE -->
-      <!-- ===================================== -->
-      <section class="slide">
-        <div class="slide-content cover">
-          <div class="cover-box-clean">
-            <h2>Conclusiones del Sprint 0</h2>
-            <p class="subtitle-clean" style="max-width: 900px; margin: 15px auto;">
-              El análisis del Sprint 0 ha consolidado la arquitectura técnica, la definición del backlog y el diseño del convertidor multimedia. El equipo está listo para iniciar el Sprint 1 e implementar el motor FFmpeg.
-            </p>
-            <h1 style="font-size:3rem; margin-top:10px; color:#1d4ed8;">
-              ¡Muchas Gracias!
-            </h1>
-            <p style="margin-top: 10px; font-size: 1.1rem; color:#475569;">
-              ¿Tienen alguna pregunta o comentario?
-            </p>
-            <br>
-            <span class="badge" style="margin-top: 10px;">VIDEOFORGE 2.0 • Ingeniería de Software y Sistemas • UNAJ</span>
-          </div>
-        </div>
-        <div class="footer">18 / 18</div>
-      </section>
-
+  <!-- S0-0 Portada -->
+  <div class="slide active" style="background:radial-gradient(ellipse at 30% 50%,#1e1b4b 0%,#0f172a 60%);text-align:center">
+    <div style="display:inline-block;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);color:#818cf8;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 16px;border-radius:99px;margin-bottom:22px;animation:fadeIn .8s ease .3s both">
+      📽️ Ingeniería de Software · VI Ciclo · EPISS · UNA Puno
+    </div>
+    <h1 style="font-size:clamp(2.5rem,5vw,4.5rem);font-weight:900;background:linear-gradient(135deg,#fff 30%,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px;animation:fadeIn .8s ease .5s both">VIDEOFORGE</h1>
+    <p style="font-size:1.1rem;color:#94a3b8;max-width:580px;line-height:1.6;margin-bottom:36px;animation:fadeIn .8s ease .7s both">Convertidor de Formatos de Video — C# · FFmpeg · MySQL · Arquitectura MVC · Metodología Scrum</p>
+    <div class="info-grid" style="animation:fadeIn .8s ease .9s both">
+      <div class="info-card"><div class="label">Curso</div><div class="value" style="color:#818cf8">Ing. de Software</div></div>
+      <div class="info-card"><div class="label">Ciclo</div><div class="value" style="color:#818cf8">VI · 2026-I</div></div>
+      <div class="info-card"><div class="label">Docente</div><div class="value" style="color:#818cf8">M.Sc. Pinto Larico</div></div>
+      <div class="info-card"><div class="label">Sprint</div><div class="value" style="color:#818cf8">Sprint 0 – Análisis</div></div>
     </div>
   </div>
 
-  <script>
-    // =====================================
-    // CONFIGURACIÓN DE DIAPOSITIVAS
-    // =====================================
-    const slidesContainer = document.getElementById('slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-    const progressBar = document.getElementById('progressBar');
-    const dotNavigation = document.getElementById('dotNavigation');
-    const indexGrid = document.getElementById('indexGrid');
-    
-    // Controles flotantes
-    const ctrlCurrent = document.getElementById('ctrl-current');
-    const ctrlTotal = document.getElementById('ctrl-total');
-    const ctrlPrev = document.getElementById('ctrl-prev');
-    const ctrlNext = document.getElementById('ctrl-next');
-    const ctrlPlay = document.getElementById('ctrl-play');
-    const ctrlFull = document.getElementById('ctrl-full');
+  <!-- S0-1 Problema & Solución -->
+  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">01 · Introducción</div><h2>El <em>Problema</em> y el Contexto</h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="card"><h3>🎯 Problema Identificado</h3><ul>
+          <li>La <strong>incompatibilidad de formatos multimedia</strong> es un desafío diario para estudiantes, docentes y profesionales tecnológicos.</li>
+          <li>Formatos como MKV, AVI, MP4, WebM, MOV y FLV no son universalmente compatibles.</li>
+          <li>Las soluciones existentes <strong>carecen de control sobre el hardware</strong> o son demasiado complejas para el usuario común.</li>
+          <li>No existe integración de auditoría ni gestión de usuarios en herramientas gratuitas del mercado.</li>
+        </ul></div>
+        <div class="card"><h3>💡 Solución Propuesta</h3><p style="margin-bottom:10px">VIDEOFORGE es una aplicación de escritorio Windows en <strong>C# (.NET Framework)</strong> que:</p><ul>
+          <li>Usa el motor <strong>FFmpeg</strong> para transcodificación de alta calidad.</li>
+          <li>Implementa <strong>concurrencia controlada</strong> con SemaphoreSlim.</li>
+          <li>Soporta GPU: <strong>NVIDIA NVENC, AMD AMF, Intel QSV</strong>.</li>
+          <li>Gestiona usuarios y auditoría con <strong>MySQL + SHA-256</strong>.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
 
-    let currentSlide = 0;
-    let isScrolling = false;
-    let autoplayInterval = null;
-    let isAutoplayActive = false;
+  <!-- S0-2 Visión del Producto -->
+  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">02 · Visión del Producto</div><h2>Tres <em>Pilares</em> del Sistema</h2><div class="divider"></div></div>
+      <div class="pilares">
+        <div class="pilar"><div class="pilar-icon">⚡</div><h4>Rendimiento Adaptativo</h4><p>Detecta automáticamente CPU, RAM y GPU. Ajusta parámetros para maximizar velocidad sin comprometer la estabilidad del SO.</p></div>
+        <div class="pilar"><div class="pilar-icon">🔐</div><h4>Seguridad y Trazabilidad</h4><p>Cada operación queda registrada en MySQL. Contraseñas con hash SHA-256. Auditoría completa de conversiones.</p></div>
+        <div class="pilar"><div class="pilar-icon">🖥️</div><h4>UX Profesional</h4><p>Dashboard MDI que guía al usuario desde el login hasta el progreso en tiempo real de cada conversión.</p></div>
+      </div>
+      <div class="kpi-row" style="margin-top:20px">
+        <div class="kpi-card"><div class="kpi-val">&lt;2 min</div><div class="kpi-label">por GB con CPU</div></div>
+        <div class="kpi-card"><div class="kpi-val">&lt;45 seg</div><div class="kpi-label">por GB con GPU</div></div>
+        <div class="kpi-card"><div class="kpi-val">&gt;95%</div><div class="kpi-label">tasa de éxito</div></div>
+        <div class="kpi-card"><div class="kpi-val">N hilos</div><div class="kpi-label">paralelos configurables</div></div>
+        <div class="kpi-card"><div class="kpi-val">&lt;3 seg</div><div class="kpi-label">respuesta de login</div></div>
+      </div>
+    </div>
+  </div>
 
-    // Listado del Índice
-    const indexItems = [
-      "Introducción del Proyecto",
-      "Problemática y Solución",
-      "Objetivos del Sistema",
-      "Visión del Producto",
-      "Requisitos Funcionales",
-      "Requisitos No Funcionales",
-      "Planificación - Sprint 0",
-      "Arquitectura MVC",
-      "Gestión de Concurrencia",
-      "Integración FFmpeg + GPU",
-      "Seguridad y Base de Datos",
-      "Diagramas UML y Modelado",
-      "Modelo Dinámico Forrester",
-      "Indicadores de Rendimiento",
-      "Entregables del Sprint 0",
-      "Conclusiones y Cierre"
-    ];
+  <!-- S0-3 Objetivo General -->
+  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">03 · Objetivos</div><h2>Objetivo <em>General</em></h2><div class="divider"></div></div>
+      <div class="card" style="max-width:800px;margin:0 auto 26px"><h3>🎓 Meta Principal del Proyecto</h3>
+        <p style="font-size:.95rem;color:#e2e8f0;line-height:1.8">Aplicar los <strong>procesos, técnicas y herramientas de la ingeniería de software</strong> en el desarrollo de un convertidor de formatos de video basado en FFmpeg y C#, bajo la metodología <strong>Scrum</strong>, para mejorar la comprensión del ciclo de vida del software en estudiantes del VI ciclo de la EPISS y producir una <strong>aplicación funcional, escalable y de calidad profesional.</strong></p>
+      </div>
+      <div class="meto-list" style="justify-content:center">
+        <div class="meto-pill">🔄 Metodología Scrum</div>
+        <div class="meto-pill">🏗️ Arquitectura MVC</div>
+        <div class="meto-pill">🎬 Motor FFmpeg</div>
+        <div class="meto-pill">🗄️ Base de Datos MySQL</div>
+        <div class="meto-pill">🖥️ C# Windows Forms</div>
+        <div class="meto-pill">🔐 Seguridad SHA-256</div>
+        <div class="meto-pill">⚡ Concurrencia SemaphoreSlim</div>
+        <div class="meto-pill">🎮 Aceleración GPU</div>
+      </div>
+    </div>
+  </div>
 
-    // =====================================
-    // GENERACIÓN DINÁMICA DE ELEMENTOS
-    // =====================================
-    
-    // Generar botones en el Índice (Diapositiva 2)
-    indexItems.forEach((title, idx) => {
-      const itemDiv = document.createElement('div');
-      itemDiv.className = 'index-item';
-      itemDiv.innerHTML = `<span class="index-item-number">${idx + 1}</span> ${title}`;
-      itemDiv.addEventListener('click', () => {
-        goToSlide(idx + 2); // Salta al slide correspondiente (0-indexado)
-      });
-      indexGrid.appendChild(itemDiv);
-    });
+  <!-- S0-4 Objetivos Específicos -->
+  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">04 · Objetivos</div><h2>Objetivos <em>Específicos</em></h2><div class="divider"></div></div>
+      <div class="obj-list">
+        <div class="obj-item"><div class="obj-num">1</div><div class="obj-text"><strong>Requisitos:</strong> Elaborar la especificación mediante historias de usuario y criterios de aceptación en un backlog Scrum.</div></div>
+        <div class="obj-item"><div class="obj-num">2</div><div class="obj-text"><strong>Arquitectura:</strong> Diseñar el software con patrón MVC y documentarlo con diagramas UML (clases, secuencia, casos de uso, ER y objetos).</div></div>
+        <div class="obj-item"><div class="obj-num">3</div><div class="obj-text"><strong>Concurrencia:</strong> Implementar conversión asíncrona y paralela con SemaphoreSlim para controlar hilos y garantizar estabilidad del SO.</div></div>
+        <div class="obj-item"><div class="obj-num">4</div><div class="obj-text"><strong>GPU:</strong> Integrar soporte de aceleración por GPU (NVIDIA NVENC, AMD AMF, Intel QSV) con detección automática de hardware.</div></div>
+        <div class="obj-item"><div class="obj-num">5</div><div class="obj-text"><strong>Seguridad:</strong> Desarrollar módulo de gestión de usuarios con autenticación SHA-256 y control de acceso por niveles respaldado en MySQL.</div></div>
+        <div class="obj-item"><div class="obj-num">6</div><div class="obj-text"><strong>Calidad:</strong> Evaluar el producto con plan de pruebas funcionales, de rendimiento y usabilidad con criterios de aceptación medibles.</div></div>
+      </div>
+    </div>
+  </div>
 
-    // Generar puntos de navegación (dot navigation)
-    const slideTooltips = [
-      "Portada",
-      "Índice",
-      "Introducción",
-      "Problemática vs Solución",
-      "Objetivos",
-      "Visión del Producto",
-      "Requisitos Funcionales",
-      "Requisitos No Funcionales",
-      "Equipo y Planificación",
-      "Arquitectura MVC",
-      "Concurrencia lóbica",
-      "FFmpeg y Aceleración",
-      "Seguridad y MySQL",
-      "Diagramas UML",
-      "Modelo Dinámico",
-      "KPIs y Métricas",
-      "Entregables Sprint 0",
-      "Cierre e Interrogantes"
-    ];
+  <!-- S0-5 Equipo -->
+  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">05 · Equipo</div><h2>Equipo de <em>Desarrollo</em> – Roles Scrum</h2><div class="divider"></div></div>
+      <table class="team-table">
+        <thead><tr><th>Integrante</th><th>Rol en el Equipo Scrum</th><th>Responsabilidades Clave</th></tr></thead>
+        <tbody>
+          <tr><td>Huichi Calderon Yeltsin Antony</td><td><span class="rol-badge" style="color:#a78bfa">🎯 Scrum Master / Sprint Leader</span></td><td>Facilita ceremonias Scrum, gestiona impedimentos, elabora requisitos</td></tr>
+          <tr><td>Quispe Quispe Diego Gonzalo</td><td><span class="rol-badge" style="color:#38bdf8">🎨 Frontend / UI Designer</span></td><td>Diseña e implementa formularios MDI, estilos, controles y UX</td></tr>
+          <tr><td>Pacori Ray Toni</td><td><span class="rol-badge" style="color:#34d399">⚙️ Backend Developer</span></td><td>Lógica de conversión, integración FFmpeg, control de procesos</td></tr>
+          <tr><td>Calsina Pari Josue Gil</td><td><span class="rol-badge" style="color:#fbbf24">🏗️ Arquitecto / DBA</span></td><td>Diagrama de clases, modelo de datos MySQL, Class_Conex.cs</td></tr>
+          <tr><td>Mamani Vilca Gianluigi Oliverio</td><td><span class="rol-badge" style="color:#f472b6">🧪 QA Tester</span></td><td>Plan de pruebas, casos funcionales y de rendimiento, reporta defectos</td></tr>
+          <tr><td>M.Sc. Juan Carlos Pinto Larico</td><td><span class="rol-badge" style="color:#818cf8">📋 Product Owner</span></td><td>Define visión del producto, prioriza backlog, valida entregables</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('div');
-      dot.className = `dot ${i === 0 ? 'active' : ''}`;
-      
-      const tooltip = document.createElement('div');
-      tooltip.className = 'dot-tooltip';
-      tooltip.textContent = `${i + 1}. ${slideTooltips[i]}`;
-      
-      dot.appendChild(tooltip);
-      dot.addEventListener('click', () => goToSlide(i));
-      dotNavigation.appendChild(dot);
-    }
+  <!-- S0-6 Sprint 0 Entregables -->
+  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">06 · Sprint 0</div><h2>Entregables del <em>Sprint 0</em></h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div>
+          <div class="obj-item"><div class="obj-num">E1</div><div class="obj-text"><strong>Hoja de Identificación del Proyecto</strong> — Huichi Calderon Y.</div></div>
+          <div class="obj-item"><div class="obj-num">E2</div><div class="obj-text"><strong>Hoja de Diseño Técnico</strong> — Calsina Pari J.</div></div>
+          <div class="obj-item"><div class="obj-num">E3</div><div class="obj-text"><strong>Identificación de Requisitos Funcionales</strong> — Huichi Calderon Y.</div></div>
+          <div class="obj-item"><div class="obj-num">E4</div><div class="obj-text"><strong>Definición de Requisitos No Funcionales</strong> — Mamani Vilca G.</div></div>
+        </div>
+        <div>
+          <div class="obj-item"><div class="obj-num">E5</div><div class="obj-text"><strong>Visión del Producto con capturas</strong> — Quispe Quispe D.</div></div>
+          <div class="obj-item"><div class="obj-num">E6</div><div class="obj-text"><strong>Product Backlog inicial (10 historias)</strong> — Equipo completo</div></div>
+          <div class="obj-item"><div class="obj-num">E7</div><div class="obj-text"><strong>Código fuente Sprint 0</strong> — Pacori Ray T. / Calsina Pari J.</div></div>
+          <div class="obj-item"><div class="obj-num">E8</div><div class="obj-text"><strong>Informe Final de Documentación</strong> — Equipo completo</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /sec0 -->
 
-    const dots = document.querySelectorAll('.dot');
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN 1 – HUICHI · SCRUM MASTER
+════════════════════════════════════════════════════════ -->
+<div class="section s1" id="sec1">
 
-    // =====================================
-    // NAVEGACIÓN Y ACTUALIZACIÓN
-    // =====================================
-    ctrlTotal.textContent = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
+  <!-- S1-0 Portada -->
+  <div class="slide active" style="background:radial-gradient(ellipse at 25% 60%,#2e1065 0%,#0f172a 65%);text-align:center">
+    <div class="avatar-ring" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">🎯</div>
+    <div class="role-pill" style="color:#a78bfa;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px">Scrum Master / Sprint Leader</div>
+    <div class="portada-name" style="background:linear-gradient(135deg,#fff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Huichi Calderon Yeltsin Antony</div>
+    <div class="portada-subt">Facilitador del equipo · Analista de Requisitos · Gestor del Sprint</div>
+    <div class="chips">
+      <div class="chip">📋 Product Backlog</div><div class="chip">🔄 Ceremonias Scrum</div>
+      <div class="chip">📝 Requisitos funcionales</div><div class="chip">🚧 Gestión de impedimentos</div><div class="chip">📊 Sprint Planning</div>
+    </div>
+  </div>
 
-    function updateSlides() {
-      // Movimiento vertical
-      slidesContainer.style.transform = `translateY(-${currentSlide * 100}vh)`;
+  <!-- S1-1 Rol & Responsabilidades -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1c0f3b 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">01 · Rol en el Proyecto</div><h2>Scrum Master / <em>Sprint Leader</em></h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="card"><h3>🎯 Responsabilidades</h3><ul>
+          <li><strong>Facilitar las ceremonias Scrum:</strong> Sprint Planning, Daily Scrum, Sprint Review y Retrospectiva.</li>
+          <li><strong>Gestionar impedimentos:</strong> Identificar y eliminar obstáculos que bloquean al equipo.</li>
+          <li><strong>Elaborar la especificación de requisitos:</strong> Historias de usuario con criterios de aceptación claros y medibles.</li>
+          <li><strong>Mantener el Product Backlog</strong> priorizado, estimado y listo para el sprint.</li>
+          <li><strong>Coordinar la comunicación</strong> entre el Product Owner (docente) y el equipo de desarrollo.</li>
+        </ul></div>
+        <div class="card"><h3>🔄 Ceremonias Scrum Coordinadas</h3>
+          <div class="us-item" style="margin-bottom:8px"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">📅 Sprint<br>Planning</div><div class="us-text">Planificación del Sprint 0. Selección de historias y asignación de tareas por rol.</div></div>
+          <div class="us-item" style="margin-bottom:8px"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">☀️ Daily<br>Scrum</div><div class="us-text">Sincronización diaria: ¿qué hice?, ¿qué haré?, ¿qué me bloquea?</div></div>
+          <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">🔍 Sprint<br>Review</div><div class="us-text">Presentación del incremento al Product Owner para validación.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      // Barra de progreso horizontal
-      const progress = ((currentSlide) / (totalSlides - 1)) * 100;
-      progressBar.style.width = progress + "%";
+  <!-- S1-2 Backlog / Historias -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1c0f3b 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">02 · Análisis de Requisitos</div><h2>Product Backlog – <em>Historias de Usuario</em></h2><div class="divider"></div></div>
+      <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-01<br>Alta</div><div class="us-text"><strong>Autenticación:</strong> Como usuario, quiero iniciar sesión con mi usuario y contraseña para acceder al sistema.</div></div>
+      <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-02<br>Alta</div><div class="us-text"><strong>Registro:</strong> Como administrador, quiero registrar nuevos usuarios con diferentes niveles de acceso.</div></div>
+      <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-04<br>Alta</div><div class="us-text"><strong>Carga de videos:</strong> Como usuario, quiero seleccionar una carpeta y ver los videos disponibles con sus metadatos.</div></div>
+      <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-06<br>Alta</div><div class="us-text"><strong>Conversión paralela:</strong> Como usuario, quiero convertir múltiples videos en paralelo y ver el progreso individual.</div></div>
+      <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-07<br>Media</div><div class="us-text"><strong>Pausa/Reanudación:</strong> Como usuario, quiero pausar y reanudar la conversión en curso sin perder el avance.</div></div>
+      <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-10<br>Baja</div><div class="us-text"><strong>Historial:</strong> Como administrador, quiero ver el historial de conversiones realizadas por todos los usuarios.</div></div>
+    </div>
+  </div>
 
-      // Actualizar número actual en controles flotantes
-      const displayNum = currentSlide + 1;
-      ctrlCurrent.textContent = displayNum < 10 ? `0${displayNum}` : displayNum;
+  <!-- S1-3 Requisitos Funcionales -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1c0f3b 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">03 · Especificación</div><h2>Requisitos <em>Funcionales</em> Clave</h2><div class="divider"></div></div>
+      <table class="req-table">
+        <thead><tr><th>ID</th><th>Requisito</th><th>Criterio de Aceptación</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#a78bfa">RF-01</td><td>El sistema valida usuario/contraseña mediante el SP <code style="color:#a78bfa;background:rgba(139,92,246,.15)">'Acceder'</code> en MySQL con hash SHA-256.</td><td>El usuario accede si las credenciales son correctas; error si no.</td></tr>
+          <tr><td style="color:#a78bfa">RF-02</td><td>Permite crear nuevos usuarios con nombre, email, usuario, contraseña y nivel de acceso (1-Admin, 2-Estándar).</td><td>El usuario aparece en la tabla <em>usuarios</em> de MySQL tras el registro exitoso.</td></tr>
+          <tr><td style="color:#a78bfa">RF-04</td><td>El sistema escanea y lista archivos de video (.mp4, .mkv, .avi, .mov, .flv, .wmv, .webm) en un DataGridView.</td><td>Se muestran nombre, tipo y tamaño de cada video.</td></tr>
+          <tr><td style="color:#a78bfa">RF-06</td><td>Convierte múltiples videos de forma asíncrona y paralela. Cantidad simultánea limitada por <code style="color:#a78bfa;background:rgba(139,92,246,.15)">SemaphoreSlim</code>.</td><td>Todos los videos de la cola aparecen como "Completado".</td></tr>
+          <tr><td style="color:#a78bfa">RF-07</td><td>El porcentaje de progreso se muestra como barra visual en la columna "Progreso" del DataGridView (CellPainting).</td><td>El porcentaje se actualiza continuamente durante la conversión.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-      // Actualizar puntos activos
-      dots.forEach((dot, idx) => {
-        if (idx === currentSlide) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
-      });
-    }
+  <!-- S1-4 Aportes -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1c0f3b 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">04 · Aportes Directos</div><h2>Mi Aporte al <em>Proyecto KODEX</em></h2><div class="divider"></div></div>
+      <div class="aporte-box">
+        <h4>📋 Especificación de Requisitos (RF &amp; RNF)</h4>
+        <p>Redacté las 10 historias de usuario (US-01 a US-10) con criterios de aceptación. Elaboré los RF-01 al RF-10 y RNF-01 al RNF-08 del informe. Base para que el equipo supiera qué construir y cómo validarlo.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>📊 Gestión del Sprint 0 – Entregables E-01 y E-03</h4>
+        <p>Coordiné la entrega de los 8 entregables del Sprint 0. Responsable directo del <strong>E-01: Hoja de Identificación del Proyecto</strong> y del <strong>E-03: Identificación de Requisitos Funcionales</strong>. Definí prioridades (Alta, Media, Baja) y asignación de sprints (1, 2, 3).</p>
+      </div>
+      <div class="aporte-box">
+        <h4>🔄 Facilitación de las Ceremonias Scrum</h4>
+        <p>Organicé el Sprint Planning donde el equipo dividió el trabajo: Frontend (Quispe), Backend (Pacori), Arquitecto/DBA (Calsina), QA (Mamani). Aseguré que cada integrante conociera sus responsabilidades dentro de la metodología ágil.</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /sec1 -->
 
-    function goToSlide(index) {
-      if (index >= 0 && index < totalSlides) {
-        currentSlide = index;
-        updateSlides();
-      }
-    }
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN 2 – QUISPE · FRONTEND
+════════════════════════════════════════════════════════ -->
+<div class="section s2" id="sec2">
 
-    function nextSlide() {
-      if (currentSlide < totalSlides - 1) {
-        currentSlide++;
-        updateSlides();
-      } else if (isAutoplayActive) {
-        currentSlide = 0; // Vuelve al inicio en modo autoplay
-        updateSlides();
-      }
-    }
+  <!-- S2-0 Portada -->
+  <div class="slide active" style="background:radial-gradient(ellipse at 20% 70%,#0c2a40 0%,#0f172a 65%);text-align:center">
+    <div class="avatar-ring" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8)">🎨</div>
+    <div class="role-pill" style="color:#38bdf8">Frontend Developer / UI Designer</div>
+    <div class="portada-name" style="background:linear-gradient(135deg,#fff,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Quispe Quispe Diego Gonzalo</div>
+    <div class="portada-subt" style="color:#94a3b8">Diseñador UI · Windows Forms · UX &amp; Estilos · CellPainting</div>
+    <div class="chips">
+      <div class="chip">🖥️ Windows Forms MDI</div><div class="chip">🎨 Class_Estilo.cs</div>
+      <div class="chip">📐 Form_Principal</div><div class="chip">🖱️ DataGridView personalizado</div><div class="chip">Entregable E-05</div>
+    </div>
+  </div>
 
-    function prevSlide() {
-      if (currentSlide > 0) {
-        currentSlide--;
-        updateSlides();
-      }
-    }
+  <!-- S2-1 Rol -->
+  <div class="slide" style="background:radial-gradient(ellipse at 80% 20%,#071a2a 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">01 · Rol en el Proyecto</div><h2>Frontend Developer / <em>UI Designer</em></h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="card"><h3 style="color:#38bdf8">🎨 Responsabilidades</h3><ul>
+          <li><strong>Diseñar e implementar la interfaz</strong> de todos los formularios Windows Forms del sistema.</li>
+          <li><strong>Desarrollar Class_Estilo.cs:</strong> clase central que aplica estilos tipo Bootstrap a controles WinForms.</li>
+          <li><strong>Implementar el Dashboard MDI</strong> en Form_Principal: ventana contenedora de todos los módulos.</li>
+          <li><strong>Personalizar el DataGridView:</strong> colores de header, fuente Segoe UI y renderizado de barras de progreso (CellPainting).</li>
+          <li><strong>Entregable E-05:</strong> Documento Visión del Producto con capturas de pantalla.</li>
+        </ul></div>
+        <div class="card"><h3 style="color:#38bdf8">🖥️ Formularios Implementados</h3><ul>
+          <li><strong>Form_Login:</strong> Inicio de sesión con estilos slate oscuro y validación visual.</li>
+          <li><strong>Form_Principal:</strong> Dashboard MDI central con menú de navegación y estado global.</li>
+          <li><strong>Form_converter:</strong> Panel de conversión con dos DataGridViews estilizados.</li>
+          <li><strong>Form_Carga:</strong> Splash screen animado al iniciar la app.</li>
+          <li><strong>Form_Ayuda / Form_Utilitarios:</strong> Módulos de soporte integrados.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
 
-    // =====================================
-    // EVENTOS DE CONTROL
-    // =====================================
-    ctrlNext.addEventListener('click', nextSlide);
-    ctrlPrev.addEventListener('click', prevSlide);
+  <!-- S2-2 Sistema de Estilos -->
+  <div class="slide" style="background:radial-gradient(ellipse at 80% 20%,#071a2a 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">02 · Sistema de Diseño</div><h2>Sistema de <em>Estilos</em> – Class_Estilo.cs</h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="card"><h3 style="color:#38bdf8">🎨 Paleta de Colores Aplicada</h3>
+          <p style="font-size:.78rem;color:#94a3b8;margin-bottom:13px">Paleta slate oscura aplicada con <code style="color:#38bdf8;background:rgba(14,165,233,.12)">AplicarEstiloWeb()</code></p>
+          <div class="swatch-row">
+            <div class="swatch-item"><div class="swatch" style="background:#1e293b"></div><span class="swatch-name">Dark Slate #1E293B</span></div>
+            <div class="swatch-item"><div class="swatch" style="background:#0ea5e9"></div><span class="swatch-name">Sky Blue #0EA5E9</span></div>
+            <div class="swatch-item"><div class="swatch" style="background:#f59e0b"></div><span class="swatch-name">Amber #F59E0B</span></div>
+            <div class="swatch-item"><div class="swatch" style="background:#ef4444"></div><span class="swatch-name">Red #EF4444</span></div>
+          </div>
+          <p style="font-size:.76rem;color:#94a3b8;margin-top:12px">Tipografía: <strong style="color:#f1f5f9">Segoe UI</strong> — headers 9pt Bold, celdas 9pt Regular, botones 10pt Bold</p>
+        </div>
+        <div class="card"><h3 style="color:#38bdf8">🖱️ Botones del Sistema</h3>
+          <p style="font-size:.78rem;color:#94a3b8;margin-bottom:12px">Cada botón tiene estado normal, hover y pressed configurados en <code style="color:#38bdf8;background:rgba(14,165,233,.12)">AplicarEstiloWeb()</code></p>
+          <div>
+            <span class="mock-btn" style="background:#1e293b;border:1px solid #334155;color:#94a3b8">🧹 Limpiar</span>
+            <span class="mock-btn" style="background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#fbbf24">⏸ Pausar</span>
+            <span class="mock-btn" style="background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.3);color:#38bdf8">▶ Reanudar</span>
+            <span class="mock-btn" style="background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#f87171">✕ Cancelar</span>
+            <span class="mock-btn" style="background:#1e293b;border:1px solid #475569;color:#f1f5f9">🎬 Convertir</span>
+          </div>
+          <div style="background:#1e293b;border-radius:8px;overflow:hidden;font-size:.72rem;margin-top:14px">
+            <div class="mock-header" style="grid-template-columns:2fr 1fr 1fr 1fr 1fr 2fr;column-gap:8px"><span>Nombre</span><span>Formato</span><span>Tamaño</span><span>Dur.</span><span>Estado</span><span>Progreso</span></div>
+            <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 1fr 1fr 2fr;column-gap:8px;align-items:center"><span>video.mkv</span><span>MP4</span><span>1.2 GB</span><span>45:30</span><span style="color:#34d399">Completado</span><div style="display:flex;align-items:center;gap:6px"><div class="mock-progress"><div class="mock-bar" style="width:100%;background:linear-gradient(90deg,#0ea5e9,#38bdf8)"></div></div><span style="color:#38bdf8;font-weight:700">100%</span></div></div>
+            <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 1fr 1fr 2fr;column-gap:8px;align-items:center"><span>demo.avi</span><span>MP4</span><span>850 MB</span><span>32:15</span><span style="color:#fbbf24">Convirtiendo</span><div style="display:flex;align-items:center;gap:6px"><div class="mock-progress"><div class="mock-bar" style="width:63%;background:linear-gradient(90deg,#0ea5e9,#38bdf8)"></div></div><span style="color:#38bdf8;font-weight:700">63%</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    // Autoplay (Toggle)
-    function toggleAutoplay() {
-      isAutoplayActive = !isAutoplayActive;
-      if (isAutoplayActive) {
-        ctrlPlay.innerHTML = '⏸';
-        ctrlPlay.style.color = '#1d4ed8';
-        ctrlPlay.title = "Pausar auto-reproducción";
-        autoplayInterval = setInterval(nextSlide, 7000); // 7 segundos por diapositiva
-      } else {
-        ctrlPlay.innerHTML = '▶';
-        ctrlPlay.style.color = '';
-        ctrlPlay.title = "Iniciar auto-reproducción (7s)";
-        clearInterval(autoplayInterval);
-      }
-    }
-    ctrlPlay.addEventListener('click', toggleAutoplay);
+  <!-- S2-3 Componentes -->
+  <div class="slide" style="background:radial-gradient(ellipse at 80% 20%,#071a2a 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">03 · Componentes</div><h2>Módulos de <em>Interfaz</em> Implementados</h2><div class="divider"></div></div>
+      <div class="three-col">
+        <div class="card" style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">🔐</div><h3 style="color:#38bdf8;justify-content:center">Form_Login</h3><p>Interfaz de acceso con fondo slate, campos estilizados, botones Bootstrap y validación visual.</p></div>
+        <div class="card" style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">🖥️</div><h3 style="color:#38bdf8;justify-content:center">Form_Principal (MDI)</h3><p>Dashboard central que aloja todos los módulos. Muestra el estado global y el menú de navegación.</p></div>
+        <div class="card" style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">🎬</div><h3 style="color:#38bdf8;justify-content:center">Form_converter</h3><p>Dos DataGridViews: lista de origen y tabla de resultados con barras de progreso pintadas con CellPainting.</p></div>
+        <div class="card" style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">⏳</div><h3 style="color:#38bdf8;justify-content:center">Form_Carga</h3><p>Splash screen animado al inicio. Carga la configuración desde db_config.ini.</p></div>
+        <div class="card" style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">⚙️</div><h3 style="color:#38bdf8;justify-content:center">Form_Setup</h3><p>Configuración de hardware. UI para seleccionar GPU y configurar hilos paralelos.</p></div>
+        <div class="card" style="text-align:center"><div style="font-size:2rem;margin-bottom:8px">❓</div><h3 style="color:#38bdf8;justify-content:center">Form_Ayuda</h3><p>Módulo de ayuda integrado con documentación del sistema para guiar al usuario.</p></div>
+      </div>
+    </div>
+  </div>
 
-    // Fullscreen (Toggle)
-    ctrlFull.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
-          console.error(`Error al iniciar pantalla completa: ${err.message}`);
-        });
-      } else {
-        document.exitFullscreen();
-      }
-    });
+  <!-- S2-4 Aportes -->
+  <div class="slide" style="background:radial-gradient(ellipse at 80% 20%,#071a2a 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">04 · Aportes Directos</div><h2>Mi Aporte al <em>Proyecto KODEX</em></h2><div class="divider"></div></div>
+      <div class="aporte-box">
+        <h4>🎨 Class_Estilo.cs – Sistema de Estilos Centralizado</h4>
+        <p>Desarrollé la clase <code>Class_Estilo</code> con el método <code>AplicarEstiloWeb(control, colorNormal, colorHover, colorPressed)</code> que aplica estilos tipo Bootstrap a cualquier control WinForms. Este componente da el aspecto profesional y consistente a toda la interfaz.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>📊 Barra de Progreso Visual – DataGridView2_CellPainting</h4>
+        <p>Implementé el evento <code>DataGridView2_CellPainting</code> en Form_converter.cs que pinta la columna "Progreso" como una barra visual coloreada (<code>Color.FromArgb(120, 23, 162, 184)</code>) con el porcentaje centrado. Reemplazó el texto plano por una UX de nivel profesional.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>📋 Entregable E-05: Visión del Producto</h4>
+        <p>Redacté el documento de Visión del Producto con capturas de pantalla de todos los formularios implementados, describiendo el flujo de usuario completo desde Form_Carga hasta la conversión exitosa. Evaluado directamente por el docente.</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /sec2 -->
 
-    // Teclado
-    document.addEventListener('keydown', (e) => {
-      if (
-        e.key === 'ArrowDown' ||
-        e.key === 'PageDown' ||
-        e.key === ' ' ||
-        e.key === 'ArrowRight'
-      ) {
-        nextSlide();
-      }
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN 3 – PACORI · BACKEND
+════════════════════════════════════════════════════════ -->
+<div class="section s3" id="sec3">
 
-      if (
-        e.key === 'ArrowUp' ||
-        e.key === 'PageUp' ||
-        e.key === 'ArrowLeft'
-      ) {
-        prevSlide();
-      }
-      
-      if (e.key === 'Home') {
-        goToSlide(0);
-      }
-      
-      if (e.key === 'End') {
-        goToSlide(totalSlides - 1);
-      }
-    });
+  <!-- S3-0 Portada -->
+  <div class="slide active" style="background:radial-gradient(ellipse at 30% 65%,#052e16 0%,#0f172a 65%);text-align:center">
+    <div class="avatar-ring" style="background:linear-gradient(135deg,#10b981,#34d399)">⚙️</div>
+    <div class="role-pill" style="color:#34d399">Backend Developer – Lógica de Aplicación</div>
+    <div class="portada-name" style="background:linear-gradient(135deg,#fff,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Pacori Ray Toni</div>
+    <div class="portada-subt" style="color:#94a3b8">Motor FFmpeg · SemaphoreSlim · Control de Procesos · async/await</div>
+    <div class="chips">
+      <div class="chip">🔧 Class_Modulo.cs</div><div class="chip">⚡ SemaphoreSlim</div>
+      <div class="chip">🎬 FFmpeg Integration</div><div class="chip">🔀 async/await</div><div class="chip">⏸ NtSuspendProcess</div>
+    </div>
+  </div>
 
-    // Rueda del ratón (Wheel)
-    window.addEventListener('wheel', (e) => {
-      if (isScrolling) return;
+  <!-- S3-1 Rol -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#04200f 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">01 · Rol en el Proyecto</div><h2>Backend Developer – <em>Lógica de Aplicación</em></h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="card"><h3 style="color:#34d399">⚙️ Responsabilidades</h3><ul>
+          <li><strong>Desarrollar Class_Modulo.cs:</strong> Motor de conversión con integración completa a FFmpeg (248 líneas).</li>
+          <li><strong>BuildArguments():</strong> Construcción dinámica de argumentos FFmpeg según formato y GPU.</li>
+          <li><strong>Control de concurrencia</strong> con <code style="color:#34d399;background:rgba(16,185,129,.12)">SemaphoreSlim</code> y <code style="color:#34d399;background:rgba(16,185,129,.12)">Task.Run()</code>.</li>
+          <li><strong>Pausa/Reanudación</strong> con <code style="color:#34d399;background:rgba(16,185,129,.12)">NtSuspendProcess</code> / <code style="color:#34d399;background:rgba(16,185,129,.12)">NtResumeProcess</code> (ntdll.dll).</li>
+          <li><strong>Parsing de progreso</strong> en tiempo real desde stderr de FFmpeg con Regex.</li>
+          <li><strong>Limpieza automática</strong> de archivos incompletos al cancelar.</li>
+        </ul></div>
+        <div class="card"><h3 style="color:#34d399">📦 Componentes Implementados</h3><ul>
+          <li><strong>Class_Modulo.cs</strong> – Motor de conversión · 248 líneas de código.</li>
+          <li><strong>BuildArguments()</strong> – Codecs: libx264, h264_nvenc, h264_amf, h264_qsv.</li>
+          <li><strong>Convertir()</strong> – Lanza FFmpeg, lee stderr, calcula progreso por Regex.</li>
+          <li><strong>Pausar() / Reanudar() / Cancelar()</strong> – Control total del proceso FFmpeg.</li>
+          <li><strong>Form_converter.cs (lógica async)</strong> – Toda la lógica de conversión paralela.</li>
+          <li><strong>Entregable E-07:</strong> Código fuente funcional del Sprint 0.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
 
-      isScrolling = true;
+  <!-- S3-2 Código -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#04200f 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">02 · Código Principal</div><h2><em>Class_Modulo.cs</em> – Motor de Conversión</h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="code-block"><span class="cm">// APIs nativas de Windows para pausar/reanudar</span>
+[<span class="cls">DllImport</span>(<span class="str">"ntdll.dll"</span>)]
+<span class="kw">private static extern void</span> <span class="fn">NtSuspendProcess</span>(IntPtr h);
+[<span class="cls">DllImport</span>(<span class="str">"ntdll.dll"</span>)]
+<span class="kw">private static extern void</span> <span class="fn">NtResumeProcess</span>(IntPtr h);
 
-      if (e.deltaY > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
+<span class="cm">// Eventos de comunicación (patrón Observer)</span>
+<span class="kw">public event</span> Action&lt;double&gt; ProgresoReportado;
+<span class="kw">public event</span> Action&lt;string&gt; ErrorReportado;
 
-      setTimeout(() => {
-        isScrolling = false;
-      }, 950);
-    });
+<span class="cm">// Construcción dinámica de argumentos FFmpeg</span>
+<span class="kw">private string</span> <span class="fn">BuildArguments</span>()
+{
+  <span class="kw">string</span> vcodec = <span class="str">"libx264"</span>;
+  <span class="kw">if</span> (ConfigConversion.UsarGPU) {
+    <span class="kw">var</span> gpu = ConfigConversion.NombreGPU.ToLower();
+    <span class="kw">if</span> (gpu.Contains(<span class="str">"nvidia"</span>)) vcodec = <span class="str">"h264_nvenc"</span>;
+    <span class="kw">else if</span> (gpu.Contains(<span class="str">"amd"</span>))   vcodec = <span class="str">"h264_amf"</span>;
+    <span class="kw">else if</span> (gpu.Contains(<span class="str">"intel"</span>)) vcodec = <span class="str">"h264_qsv"</span>;
+  }
+  <span class="kw">return</span> $<span class="str">"-y -i \"{InputFile}\" -c:v {vcodec} \"{OutputFile}\""</span>;
+}</div>
+        <div class="code-block"><span class="cm">// Parsing progreso en tiempo real (stderr FFmpeg)</span>
+<span class="kw">var</span> durRegex = <span class="kw">new</span> <span class="cls">Regex</span>(<span class="str">@"Duration:\s*(\d+):(\d+):(\d+)"</span>);
+<span class="kw">var</span> timeRegex = <span class="kw">new</span> <span class="cls">Regex</span>(<span class="str">@"time=(\d+):(\d+):(\d+)"</span>);
 
-    // Gestos táctiles (Móviles)
-    let touchStartY = 0;
-    window.addEventListener('touchstart', (e) => {
-      touchStartY = e.touches[0].clientY;
-    });
+<span class="kw">while</span> ((line = stderr.<span class="fn">ReadLine</span>()) != <span class="kw">null</span>)
+{
+  <span class="kw">if</span> (durRegex.<span class="fn">Match</span>(line).Success)
+    totalSegundos = h*<span class="num">3600</span> + m*<span class="num">60</span> + s;
 
-    window.addEventListener('touchend', (e) => {
-      let touchEndY = e.changedTouches[0].clientY;
-      if (touchStartY - touchEndY > 50) {
-        nextSlide();
-      }
-      if (touchEndY - touchStartY > 50) {
-        prevSlide();
-      }
-    });
+  <span class="kw">if</span> (timeRegex.<span class="fn">Match</span>(line).Success &amp;&amp; totalSegundos &gt; <span class="num">0</span>)
+  {
+    <span class="kw">double</span> pct = (actual / totalSegundos) * <span class="num">100.0</span>;
+    ProgresoReportado?.Invoke(pct); <span class="cm">// → UI</span>
+  }
+}
+<span class="cm">// Limpieza si fue cancelado por el usuario</span>
+<span class="kw">if</span> (canceladoPorUsuario)
+  File.<span class="fn">Delete</span>(OutputFile); <span class="cm">// Borra archivo incompleto</span>
 
-    // Inicialización inicial
-    updateSlides();
-  </script>
+<span class="cm">// Concurrencia en Form_converter</span>
+semaforo = <span class="kw">new</span> <span class="cls">SemaphoreSlim</span>(maxHilos);
+<span class="kw">await</span> semaforo.<span class="fn">WaitAsync</span>();
+<span class="kw">await</span> Task.<span class="fn">WhenAll</span>(tareas);</div>
+      </div>
+    </div>
+  </div>
 
+  <!-- S3-3 Features -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#04200f 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">03 · Características Técnicas</div><h2>Features <em>Backend</em> Implementadas</h2><div class="divider"></div></div>
+      <div class="feat-grid">
+        <div class="feat-item"><div class="feat-icon">🎮</div><div class="feat-text"><h4>Aceleración GPU Multi-Fabricante</h4><p><code style="color:#34d399;background:rgba(16,185,129,.1)">h264_nvenc</code> (NVIDIA), <code style="color:#34d399;background:rgba(16,185,129,.1)">h264_amf</code> (AMD), <code style="color:#34d399;background:rgba(16,185,129,.1)">h264_qsv</code> (Intel). Detección automática por nombre de GPU.</p></div></div>
+        <div class="feat-item"><div class="feat-icon">🔀</div><div class="feat-text"><h4>Conversión Paralela con SemaphoreSlim</h4><p><code style="color:#34d399;background:rgba(16,185,129,.1)">SemaphoreSlim(maxHilos)</code> limita las conversiones simultáneas. <code style="color:#34d399;background:rgba(16,185,129,.1)">Task.WhenAll()</code> espera la finalización de todas.</p></div></div>
+        <div class="feat-item"><div class="feat-icon">⏸</div><div class="feat-text"><h4>Pausa/Reanudación a Nivel SO</h4><p><code style="color:#34d399;background:rgba(16,185,129,.1)">NtSuspendProcess</code> congela el proceso FFmpeg a nivel kernel. <code style="color:#34d399;background:rgba(16,185,129,.1)">NtResumeProcess</code> lo reanuda sin pérdida de estado.</p></div></div>
+        <div class="feat-item"><div class="feat-icon">📊</div><div class="feat-text"><h4>Progreso en Tiempo Real</h4><p>Regex sobre stderr de FFmpeg extrae <code style="color:#34d399;background:rgba(16,185,129,.1)">Duration:</code> y <code style="color:#34d399;background:rgba(16,185,129,.1)">time=</code>. Evento <code style="color:#34d399;background:rgba(16,185,129,.1)">ProgresoReportado</code> actualiza la UI.</p></div></div>
+        <div class="feat-item"><div class="feat-icon">🔒</div><div class="feat-text"><h4>Thread-Safety en UI</h4><p>Todos los updates al DataGridView se realizan via <code style="color:#34d399;background:rgba(16,185,129,.1)">this.Invoke(MethodInvoker)</code> garantizando ejecución en el hilo principal.</p></div></div>
+        <div class="feat-item"><div class="feat-icon">🚫</div><div class="feat-text"><h4>Cancelación y Limpieza</h4><p><code style="color:#34d399;background:rgba(16,185,129,.1)">CancellationTokenSource</code> coordina la cancelación. Al cancelar: <code style="color:#34d399;background:rgba(16,185,129,.1)">Kill()</code> y <code style="color:#34d399;background:rgba(16,185,129,.1)">File.Delete()</code> para evitar archivos corruptos.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3-4 Aportes -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#04200f 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">04 · Aportes Directos</div><h2>Mi Aporte al <em>Proyecto KODEX</em></h2><div class="divider"></div></div>
+      <div class="flow" style="margin-bottom:18px">
+        <div class="flow-step"><div class="s-icon">👤</div><div class="s-name" style="color:#34d399">Usuario</div><div class="s-desc">Click Convertir</div></div>
+        <div class="flow-arrow" style="color:#34d399">→</div>
+        <div class="flow-step"><div class="s-icon">🔐</div><div class="s-name" style="color:#34d399">SemaphoreSlim</div><div class="s-desc">WaitAsync()</div></div>
+        <div class="flow-arrow" style="color:#34d399">→</div>
+        <div class="flow-step"><div class="s-icon">⚙️</div><div class="s-name" style="color:#34d399">Class_Modulo</div><div class="s-desc">BuildArguments()</div></div>
+        <div class="flow-arrow" style="color:#34d399">→</div>
+        <div class="flow-step"><div class="s-icon">🎬</div><div class="s-name" style="color:#34d399">FFmpeg.exe</div><div class="s-desc">Process.Start()</div></div>
+        <div class="flow-arrow" style="color:#34d399">→</div>
+        <div class="flow-step"><div class="s-icon">📊</div><div class="s-name" style="color:#34d399">Regex stderr</div><div class="s-desc">time= parsing</div></div>
+        <div class="flow-arrow" style="color:#34d399">→</div>
+        <div class="flow-step"><div class="s-icon">🖥️</div><div class="s-name" style="color:#34d399">UI (Invoke)</div><div class="s-desc">DataGridView</div></div>
+      </div>
+      <div class="aporte-box">
+        <h4>⚙️ Class_Modulo.cs + Form_converter.cs (lógica) – Entregable E-07</h4>
+        <p>Desarrollé junto con Calsina el código fuente completo del Sprint 0. Mi responsabilidad directa fue el motor de conversión <strong>Class_Modulo.cs</strong> (248 líneas) y la lógica asíncrona de <strong>Form_converter.cs</strong> (406 líneas). Manejo concurrencia, integración con proceso externo FFmpeg, APIs nativas de Windows y comunicación thread-safe con la UI.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>🔧 Codecs y Formatos Soportados</h4>
+        <p>Implementé soporte completo: <code>mp4</code> (h264+aac, faststart), <code>webm</code> (libvpx-vp9+libopus), <code>avi</code> (mpeg4+libmp3lame), modo <code>copy</code>. En GPU: <code>h264_nvenc</code>, <code>h264_amf</code>, <code>h264_qsv</code> con parámetros de calidad equivalentes (cq/cqp/global_quality = 20).</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /sec3 -->
+
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN 4 – CALSINA · ARQUITECTO / DBA
+════════════════════════════════════════════════════════ -->
+<div class="section s4" id="sec4">
+
+  <!-- S4-0 Portada -->
+  <div class="slide active" style="background:radial-gradient(ellipse at 30% 60%,#2a1500 0%,#0f172a 65%);text-align:center">
+    <div class="avatar-ring" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">🏗️</div>
+    <div class="role-pill" style="color:#fbbf24">Arquitecto de Software / Administrador de Base de Datos</div>
+    <div class="portada-name" style="background:linear-gradient(135deg,#fff,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Calsina Pari Josue Gil</div>
+    <div class="portada-subt" style="color:#94a3b8">Arquitectura MVC · Modelo de Datos MySQL · Class_Conex.cs · Diagramas UML</div>
+    <div class="chips">
+      <div class="chip">🏛️ Arquitectura MVC</div><div class="chip">🗄️ MySQL Schema</div>
+      <div class="chip">📐 Diagramas UML</div><div class="chip">🔌 Class_Conex.cs</div><div class="chip">Entregable E-02</div>
+    </div>
+  </div>
+
+  <!-- S4-1 Rol -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f1200 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">01 · Rol en el Proyecto</div><h2>Arquitecto &amp; <em>Administrador de BD</em></h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="card"><h3 style="color:#fbbf24">🏗️ Responsabilidades</h3><ul>
+          <li><strong>Diseñar la arquitectura MVC</strong> del sistema y definir la separación de capas.</li>
+          <li><strong>Elaborar el Diagrama de Clases</strong> con 7 entidades y sus relaciones.</li>
+          <li><strong>Diseñar el modelo de datos MySQL:</strong> tablas usuarios, grupos y conversiones.</li>
+          <li><strong>Desarrollar Class_Conex.cs:</strong> capa de acceso a datos con todos los métodos MySQL.</li>
+          <li><strong>Diseñar el Diagrama ER</strong> y el Diagrama de Objetos.</li>
+          <li><strong>Entregable E-02:</strong> Hoja de Diseño Técnico con tecnologías y versiones.</li>
+        </ul></div>
+        <div class="card"><h3 style="color:#fbbf24">📐 Diagramas UML Elaborados</h3><ul>
+          <li><strong>Diagrama de Clases:</strong> 7 clases principales con atributos, métodos y relaciones.</li>
+          <li><strong>Diagrama de Casos de Uso:</strong> 2 actores (Usuario/Admin) y 12 casos de uso.</li>
+          <li><strong>Diagrama de Secuencia:</strong> 15 pasos del flujo de conversión.</li>
+          <li><strong>Diagrama ER:</strong> Tablas usuarios, grupos y conversiones con FK.</li>
+          <li><strong>Diagrama de Objetos:</strong> Instancias concretas de una sesión típica.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4-2 Arquitectura MVC -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f1200 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">02 · Arquitectura</div><h2>Arquitectura <em>MVC</em> del Sistema</h2><div class="divider"></div></div>
+      <div class="arch-layer"><div class="arch-icon">👁️</div><div class="arch-name" style="color:#fbbf24">Vista (View)</div><div class="arch-comp">Form_Login, Form_Principal, Form_converter,<br>Form_Registro, Form_Setup, Form_Conex,<br>Form_Utilitarios, Form_Ayuda, Form_Carga</div><div class="arch-resp">Presentación de datos. Captura de eventos. Renderizado de controles (DataGridView, ProgressBar, Buttons).</div></div>
+      <div class="arch-layer"><div class="arch-icon">📦</div><div class="arch-name" style="color:#fbbf24">Modelo (Model)</div><div class="arch-comp">Class_Conex (Conexion, Sesion),<br>Class_Config, MetadatosVideo,<br>ConfigConversion, Class_Seguridad</div><div class="arch-resp">Representación de datos, acceso a MySQL, configuración, encriptación SHA-256 y modelos de entidad.</div></div>
+      <div class="arch-layer"><div class="arch-icon">⚙️</div><div class="arch-name" style="color:#fbbf24">Controlador</div><div class="arch-comp">Class_Modulo, Form_converter (lógica), Program.cs</div><div class="arch-resp">Lógica de negocio: construcción de argumentos FFmpeg, control de procesos, semáforos, enrutamiento.</div></div>
+      <div class="arch-layer"><div class="arch-icon">🔌</div><div class="arch-name" style="color:#fbbf24">Integración</div><div class="arch-comp">FFmpeg.exe, FFprobe.exe, MySQL, ntdll.dll</div><div class="arch-resp">Herramientas externas integradas mediante Process, MySqlClient y DllImport.</div></div>
+    </div>
+  </div>
+
+  <!-- S4-3 BD -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f1200 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">03 · Base de Datos</div><h2>Modelo de Datos <em>MySQL</em></h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div>
+          <div class="db-table" style="margin-bottom:12px">
+            <div class="db-header">🗄️ tabla: <strong>usuarios</strong></div>
+            <div class="db-field"><span class="fld-name pk" style="color:#fbbf24">usersId</span><span class="fld-type">INT (PK)</span><span class="fld-desc">Identificador único</span></div>
+            <div class="db-field"><span class="fld-name fk">grupoId</span><span class="fld-type">INT (FK)</span><span class="fld-desc">→ grupos.grupoId</span></div>
+            <div class="db-field"><span class="fld-name">nombres</span><span class="fld-type">VARCHAR(100)</span><span class="fld-desc">Nombre completo</span></div>
+            <div class="db-field"><span class="fld-name">clave</span><span class="fld-type">CHAR(64)</span><span class="fld-desc">Hash SHA-256</span></div>
+            <div class="db-field"><span class="fld-name">nivel</span><span class="fld-type">INT</span><span class="fld-desc">1=Admin, 2=Estándar</span></div>
+          </div>
+          <div class="db-table">
+            <div class="db-header">🗄️ tabla: <strong>grupos</strong></div>
+            <div class="db-field"><span class="fld-name pk" style="color:#fbbf24">grupoId</span><span class="fld-type">INT (PK)</span><span class="fld-desc">Identificador del grupo</span></div>
+            <div class="db-field"><span class="fld-name fk">usersId</span><span class="fld-type">INT (FK)</span><span class="fld-desc">→ Admin del grupo</span></div>
+            <div class="db-field"><span class="fld-name">nombreGrupo</span><span class="fld-type">VARCHAR(50)</span><span class="fld-desc">Nombre del grupo</span></div>
+            <div class="db-field"><span class="fld-name">fechaFinal</span><span class="fld-type">DATE</span><span class="fld-desc">Fin de vigencia</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="db-table" style="margin-bottom:12px">
+            <div class="db-header">🗄️ tabla: <strong>conversiones</strong> (Sprint 2)</div>
+            <div class="db-field"><span class="fld-name pk" style="color:#fbbf24">convId</span><span class="fld-type">INT (PK)</span><span class="fld-desc">ID de conversión</span></div>
+            <div class="db-field"><span class="fld-name fk">usersId</span><span class="fld-type">INT (FK)</span><span class="fld-desc">→ usuarios.usersId</span></div>
+            <div class="db-field"><span class="fld-name">formato</span><span class="fld-type">VARCHAR(10)</span><span class="fld-desc">mp4, mkv, webm...</span></div>
+            <div class="db-field"><span class="fld-name">estado</span><span class="fld-type">VARCHAR(20)</span><span class="fld-desc">Completado/Cancelado</span></div>
+            <div class="db-field"><span class="fld-name">fechaConversion</span><span class="fld-type">DATETIME</span><span class="fld-desc">Timestamp</span></div>
+          </div>
+          <div class="card" style="padding:14px">
+            <h3 style="color:#fbbf24;font-size:.82rem">🔧 SP: <code style="font-family:monospace;color:#fbbf24">Acceder(Usuario, Claves)</code></h3>
+            <p style="font-size:.76rem">Valida credenciales en MySQL. Recibe usuario en texto plano y hash SHA-256 de la contraseña. Retorna datos de sesión (usersId, grupoId, nombres, nivel) o <em>mensaje='No Existe'</em>. La lógica de autenticación vive en la BD, no en el código C#.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4-4 Aportes -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f1200 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">04 · Aportes Directos</div><h2>Mi Aporte al <em>Proyecto KODEX</em></h2><div class="divider"></div></div>
+      <div class="aporte-box">
+        <h4>🔌 Class_Conex.cs – Capa de Acceso a Datos</h4>
+        <p>Diseñé e implementé la clase <code>Conexion</code> con: <code>ObtenerConexion()</code>, <code>EjecutarComando(sql, params)</code>, <code>EjecutarConsulta(sql, params)</code>, <code>EjecutarProcedimiento(nombreSP, params)</code> y <code>ProbarConexion(progressBar, label)</code>. También la clase estática <code>Sesion</code> que mantiene los datos del usuario autenticado disponibles globalmente.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>📐 Diseño del Diagrama de Clases UML</h4>
+        <p>Diseñé el diagrama completo con las 7 clases: <code>Sesion</code>, <code>Conexion</code>, <code>Configuracion</code>, <code>ConfigConversion</code>, <code>Class_Modulo</code>, <code>MetadatosVideo</code>, <code>Class_Seguridad</code>. Definí las relaciones: Composición, Dependencia, Asociación y Herencia entre todos los componentes.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>📋 Entregable E-02: Hoja de Diseño Técnico</h4>
+        <p>Elaboré la tabla de componentes técnicos: C# (.NET 4.7.2), Visual Studio 2022, FFmpeg 7.x, MySQL 8.0, MySql.Data.MySqlClient (NuGet), SHA-256, SemaphoreSlim, NtSuspendProcess/NtResumeProcess, NVENC/AMF/QSV, archivo INI de configuración.</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /sec4 -->
+
+<!-- ════════════════════════════════════════════════════════
+     SECCIÓN 5 – MAMANI · QA TESTER
+════════════════════════════════════════════════════════ -->
+<div class="section s5" id="sec5">
+
+  <!-- S5-0 Portada -->
+  <div class="slide active" style="background:radial-gradient(ellipse at 30% 60%,#2d0621 0%,#0f172a 65%);text-align:center">
+    <div class="avatar-ring" style="background:linear-gradient(135deg,#ec4899,#f472b6)">🧪</div>
+    <div class="role-pill" style="color:#f472b6">QA Tester – Especialista en Calidad y Pruebas</div>
+    <div class="portada-name" style="background:linear-gradient(135deg,#fff,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Mamani Vilca Gianluigi Oliverio</div>
+    <div class="portada-subt" style="color:#94a3b8">Plan de Pruebas · Casos Funcionales · Requisitos No Funcionales · Métricas</div>
+    <div class="chips">
+      <div class="chip">🧪 Plan de Pruebas</div><div class="chip">✅ Casos Funcionales</div>
+      <div class="chip">⚡ Pruebas de Rendimiento</div><div class="chip">🔐 RNF-01 a RNF-08</div><div class="chip">Entregable E-04</div>
+    </div>
+  </div>
+
+  <!-- S5-1 Rol -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f0514 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">01 · Rol en el Proyecto</div><h2>QA Tester – <em>Especialista en Calidad</em></h2><div class="divider"></div></div>
+      <div class="two-col">
+        <div class="card"><h3 style="color:#f472b6">🧪 Responsabilidades</h3><ul>
+          <li><strong>Definir el plan de pruebas:</strong> categorías funcional, rendimiento y usabilidad con criterios medibles.</li>
+          <li><strong>Ejecutar casos de prueba funcionales</strong> para cada requisito RF-01 al RF-10.</li>
+          <li><strong>Pruebas de rendimiento:</strong> conversión de 1 GB y 4 GB en CPU y GPU midiendo tiempos.</li>
+          <li><strong>Elaborar los RNF-01 a RNF-08</strong> con métricas específicas y métodos de verificación.</li>
+          <li><strong>Reportar defectos</strong> con descripción, severidad y pasos para reproducirlos.</li>
+          <li><strong>Entregable E-04:</strong> Definición de Requisitos No Funcionales del sistema.</li>
+        </ul></div>
+        <div class="card"><h3 style="color:#f472b6">📊 KPIs de Calidad Definidos</h3>
+          <div class="kpi-row" style="flex-wrap:wrap;gap:8px">
+            <div class="kpi-card" style="min-width:110px"><div class="kpi-val" style="color:#f472b6;font-size:1.2rem">&lt;2 min/GB</div><div class="kpi-label">conversión con CPU</div></div>
+            <div class="kpi-card" style="min-width:110px"><div class="kpi-val" style="color:#f472b6;font-size:1.2rem">&lt;45 seg/GB</div><div class="kpi-label">conversión con GPU</div></div>
+            <div class="kpi-card" style="min-width:110px"><div class="kpi-val" style="color:#f472b6;font-size:1.2rem">&gt;95%</div><div class="kpi-label">tasa de éxito</div></div>
+            <div class="kpi-card" style="min-width:110px"><div class="kpi-val" style="color:#f472b6;font-size:1.2rem">&lt;3 seg</div><div class="kpi-label">respuesta login</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5-2 Casos de Prueba -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f0514 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">02 · Plan de Pruebas</div><h2>Casos de Prueba <em>Funcionales</em></h2><div class="divider"></div></div>
+      <table class="test-table">
+        <thead><tr><th>ID</th><th>Caso de Prueba</th><th>RF</th><th>Criterio de Aceptación</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#f472b6">CP-01</td><td>Login con credenciales válidas</td><td>RF-01</td><td>Sistema accede y carga datos de sesión en clase estática Sesion</td><td><span class="badge-pass">✓ PASS</span></td></tr>
+          <tr><td style="color:#f472b6">CP-02</td><td>Login con credenciales incorrectas</td><td>RF-01</td><td>Muestra "Acceso Denegado" y limpia campo contraseña</td><td><span class="badge-pass">✓ PASS</span></td></tr>
+          <tr><td style="color:#f472b6">CP-03</td><td>Carga de carpeta con videos mixtos</td><td>RF-04</td><td>DataGridView muestra nombre, tipo y tamaño de cada video</td><td><span class="badge-pass">✓ PASS</span></td></tr>
+          <tr><td style="color:#f472b6">CP-04</td><td>Conversión paralela de 5 videos</td><td>RF-06</td><td>5 videos convertidos simultáneamente; todos en "Completado"</td><td><span class="badge-pass">✓ PASS</span></td></tr>
+          <tr><td style="color:#f472b6">CP-05</td><td>Pausa y reanudación durante conversión</td><td>RF-08</td><td>FFmpeg se pausa sin pérdida de progreso y reanuda correctamente</td><td><span class="badge-pass">✓ PASS</span></td></tr>
+          <tr><td style="color:#f472b6">CP-06</td><td>Cancelación con limpieza de archivos</td><td>RF-09</td><td>Archivos incompletos eliminados; estado muestra "Cancelado"</td><td><span class="badge-pass">✓ PASS</span></td></tr>
+          <tr><td style="color:#f472b6">CP-07</td><td>Conversión con GPU NVIDIA (NVENC)</td><td>RF-10</td><td>Argumentos FFmpeg incluyen h264_nvenc y -hwaccel auto</td><td><span class="badge-warn">⚠ Dep. HW</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- S5-3 RNF -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f0514 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">03 · Entregable E-04</div><h2>Requisitos <em>No Funcionales</em></h2><div class="divider"></div></div>
+      <div class="rnf-item"><div class="rnf-id">RNF-01<br>Rendimiento</div><div class="rnf-content"><h4>Tiempo de conversión optimizado según hardware</h4><div class="metric">Verificación: Conversión de 1 GB y 4 GB en CPU y GPU midiendo tiempo.</div></div><div style="margin-left:auto;text-align:right"><span class="badge-pass">&lt;2 min/GB CPU</span></div></div>
+      <div class="rnf-item"><div class="rnf-id">RNF-02<br>Usabilidad</div><div class="rnf-content"><h4>Interfaz intuitiva con retroalimentación visual en tiempo real</h4><div class="metric">Verificación: Sesión con usuario nuevo cronometrada.</div></div><div style="margin-left:auto"><span class="badge-pass">&lt;10 min aprend.</span></div></div>
+      <div class="rnf-item"><div class="rnf-id">RNF-03<br>Seguridad</div><div class="rnf-content"><h4>Contraseñas cifradas con SHA-256</h4><div class="metric">Verificación: Comprobar en MySQL que todas las claves son hashes de 64 caracteres.</div></div><div style="margin-left:auto"><span class="badge-pass">SHA-256</span></div></div>
+      <div class="rnf-item"><div class="rnf-id">RNF-04<br>Confiabilidad</div><div class="rnf-content"><h4>El sistema no debe bloquearse ante errores de FFmpeg</h4><div class="metric">Verificación: Prueba con archivos corruptos para verificar manejo de excepciones.</div></div><div style="margin-left:auto"><span class="badge-pass">Try/catch</span></div></div>
+      <div class="rnf-item"><div class="rnf-id">RNF-05<br>Escalabilidad</div><div class="rnf-content"><h4>Conversión paralela sin degradar el SO</h4><div class="metric">Verificación: 20 archivos con SemaphoreSlim en 1, 2, 4 y 8 hilos simultáneos.</div></div><div style="margin-left:auto"><span class="badge-pass">SemaphoreSlim</span></div></div>
+      <div class="rnf-item"><div class="rnf-id">RNF-06<br>Compatibilidad</div><div class="rnf-content"><h4>Compatible con Windows 10/11, .NET Framework 4.7+</h4><div class="metric">Verificación: Ejecución en VMs con Windows 10 x64 y Windows 11 x64.</div></div><div style="margin-left:auto"><span class="badge-pass">Win10/11</span></div></div>
+    </div>
+  </div>
+
+  <!-- S5-4 Aportes -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#1f0514 0%,#0f172a 70%)">
+    <div class="sc">
+      <div class="slide-header"><div class="slide-num">04 · Aportes Directos</div><h2>Mi Aporte al <em>Proyecto KODEX</em></h2><div class="divider"></div></div>
+      <div class="aporte-box">
+        <h4>📋 Entregable E-04: Requisitos No Funcionales (RNF-01 a RNF-08)</h4>
+        <p>Definí los 8 RNF con categorías (Rendimiento, Usabilidad, Seguridad, Confiabilidad, Escalabilidad, Compatibilidad, Mantenibilidad, Portabilidad), métricas específicas y plan de verificación para cada uno. Estos criterios definen la <strong>calidad del software</strong>, no solo su funcionalidad.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>⚡ Plan de Pruebas de Rendimiento</h4>
+        <p>Diseñé el plan de prueba: conversión de archivos de <code>1 GB</code> y <code>4 GB</code> midiendo tiempo en CPU (libx264) y GPU (h264_nvenc, h264_amf, h264_qsv). Prueba de escalabilidad con <code>SemaphoreSlim</code> configurado en 1, 2, 4 y 8 hilos con 20 archivos simultáneos. Meta: &lt;2 min/GB CPU y &lt;45 seg/GB GPU.</p>
+      </div>
+      <div class="aporte-box">
+        <h4>🔐 Verificación de Seguridad y Portabilidad</h4>
+        <p>Definí los procedimientos de verificación de <strong>RNF-03</strong> (Seguridad): comprobar en MySQL que las contraseñas son hashes SHA-256 de 64 caracteres. Y <strong>RNF-08</strong> (Portabilidad): cambiar el servidor MySQL en <code>db_config.ini</code> y verificar reconexión exitosa sin recompilar.</p>
+      </div>
+    </div>
+  </div>
+</div><!-- /sec5 -->
+
+<!-- ═══════════════ BOTTOM NAV ═══════════════ -->
+<nav id="bottomnav">
+  <button class="bnav-btn" onclick="prevSlide()">◀</button>
+  <div id="dots-container"></div>
+  <span id="slide-counter">1 / 7</span>
+  <button class="bnav-btn" onclick="nextSlide()">▶</button>
+  <span id="global-counter">1 / 32</span>
+</nav>
+
+<script>
+/* ════════════════════════════════
+   DATA: section metadata
+════════════════════════════════ */
+const SECTIONS = [
+  { id:'sec0', label:'VIDEOFORGE · 2026', colorClass:'c0' },
+  { id:'sec1', label:'🎯 Huichi · Scrum Master', colorClass:'c1' },
+  { id:'sec2', label:'🎨 Quispe · Frontend', colorClass:'c2' },
+  { id:'sec3', label:'⚙️ Pacori · Backend', colorClass:'c3' },
+  { id:'sec4', label:'🏗️ Calsina · Arquitecto DBA', colorClass:'c4' },
+  { id:'sec5', label:'🧪 Mamani · QA Tester', colorClass:'c5' },
+];
+
+let curSec = 0;
+let curSlide = 0;
+
+/* gather slides per section */
+const secEls = SECTIONS.map(s => document.getElementById(s.id));
+const slidesBySec = secEls.map(el => Array.from(el.querySelectorAll('.slide')));
+const totalGlobal = slidesBySec.reduce((a,b) => a + b.length, 0);
+
+/* ────────── DOTS ────────── */
+const dotsContainer = document.getElementById('dots-container');
+
+function buildDots() {
+  dotsContainer.innerHTML = '';
+  const slides = slidesBySec[curSec];
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === curSlide ? ' active' : '');
+    d.style.background = i === curSlide ? SECTIONS[curSec].dotColor || '#fff' : '';
+    d.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(d);
+  });
+}
+
+/* ────────── COUNTERS ────────── */
+function updateCounters() {
+  const total = slidesBySec[curSec].length;
+  document.getElementById('slide-counter').textContent = `${curSlide+1} / ${total}`;
+  // global position
+  let g = 0;
+  for(let s=0; s<curSec; s++) g += slidesBySec[s].length;
+  g += curSlide + 1;
+  document.getElementById('global-counter').textContent = `${g} / ${totalGlobal}`;
+  // progress bar
+  const fill = document.getElementById('progress-fill');
+  fill.className = SECTIONS[curSec].colorClass;
+  fill.style.width = `${(g / totalGlobal) * 100}%`;
+  // section label
+  document.getElementById('section-label').textContent = SECTIONS[curSec].label;
+}
+
+/* ────────── NAVIGATE SLIDES ────────── */
+function goToSlide(n) {
+  const slides = slidesBySec[curSec];
+  if(n < 0 || n >= slides.length) return false;
+  slides[curSlide].classList.remove('active');
+  slides[curSlide].classList.add('exit');
+  const prev = curSlide;
+  curSlide = n;
+  slides[curSlide].classList.add('active');
+  setTimeout(() => slides[prev].classList.remove('exit'), 480);
+  buildDots();
+  updateCounters();
+  return true;
+}
+
+function nextSlide() {
+  const slides = slidesBySec[curSec];
+  if(curSlide < slides.length - 1) { goToSlide(curSlide + 1); }
+  else if(curSec < SECTIONS.length - 1) { goToSection(curSec + 1); }
+}
+function prevSlide() {
+  if(curSlide > 0) { goToSlide(curSlide - 1); }
+  else if(curSec > 0) {
+    const prevSec = curSec - 1;
+    goToSection(prevSec, slidesBySec[prevSec].length - 1);
+  }
+}
+
+/* ────────── NAVIGATE SECTIONS ────────── */
+function goToSection(secIdx, slideIdx = 0) {
+  if(secIdx === curSec) { goToSlide(slideIdx); return; }
+  // hide current
+  secEls[curSec].classList.remove('active-section');
+  slidesBySec[curSec].forEach(s => s.classList.remove('active','exit'));
+  // show new
+  curSec = secIdx; curSlide = slideIdx;
+  secEls[curSec].classList.add('active-section');
+  slidesBySec[curSec].forEach((s,i) => { if(i===curSlide) s.classList.add('active'); });
+  // update tabs
+  document.querySelectorAll('.stab').forEach((t,i) => t.classList.toggle('active', i===curSec));
+  buildDots();
+  updateCounters();
+}
+
+/* ────────── INIT ────────── */
+document.querySelectorAll('.stab').forEach((tab,i) => {
+  tab.onclick = () => goToSection(i);
+});
+
+/* dot active colors per section */
+const dotColors = ['#818cf8','#a78bfa','#38bdf8','#34d399','#fbbf24','#f472b6'];
+SECTIONS.forEach((s,i) => s.dotColor = dotColors[i]);
+
+/* set initial dot active color */
+function setDotActiveColor() {
+  document.querySelectorAll('#dots-container .dot.active').forEach(d => {
+    d.style.background = SECTIONS[curSec].dotColor;
+  });
+  document.querySelectorAll('#dots-container .dot:not(.active)').forEach(d => {
+    d.style.background = '#263348';
+  });
+}
+
+const origBuildDots = buildDots;
+buildDots = function() { origBuildDots(); setDotActiveColor(); };
+
+buildDots();
+updateCounters();
+
+/* ────────── KEYBOARD ────────── */
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+  if(e.key === 'ArrowLeft')                   { e.preventDefault(); prevSlide(); }
+  if(e.key >= '1' && e.key <= '6')            { e.preventDefault(); goToSection(+e.key - 1); }
+});
+
+/* ────────── SWIPE (touch) ────────── */
+let touchX = 0;
+document.addEventListener('touchstart', e => touchX = e.changedTouches[0].clientX, {passive:true});
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchX;
+  if(Math.abs(dx) > 50) { dx < 0 ? nextSlide() : prevSlide(); }
+}, {passive:true});
+</script>
 </body>
 </html>
