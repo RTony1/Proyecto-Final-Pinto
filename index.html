@@ -221,6 +221,7 @@ body {
   background: #080f1e; border: 1px solid rgba(255,255,255,.08); border-radius: 11px;
   padding: 14px; font-family: 'JetBrains Mono', monospace; font-size: .73rem; line-height: 1.7;
   color: #a5b4fc; overflow: hidden; width: 100%;
+  white-space: pre-wrap; word-break: break-word;
 }
 .kw { color: #34d399; } .str { color: #fbbf24; } .cm { color: #475569; font-style:italic; }
 .fn { color: #60a5fa; } .num { color: #f472b6; } .cls { color: #e879f9; }
@@ -532,21 +533,6 @@ code { border-radius: 4px; padding: 1px 5px; font-family: 'JetBrains Mono', mono
     </div>
   </div>
 
-  <!-- S0-4 Objetivos Específicos -->
-  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
-    <div class="sc">
-      <div class="slide-header"><div class="slide-num">04 · Objetivos</div><h2>Objetivos <em>Específicos</em></h2><div class="divider"></div></div>
-      <div class="obj-list">
-        <div class="obj-item"><div class="obj-num">1</div><div class="obj-text"><strong>Requisitos:</strong> Elaborar la especificación mediante historias de usuario y criterios de aceptación en un backlog Scrum.</div></div>
-        <div class="obj-item"><div class="obj-num">2</div><div class="obj-text"><strong>Arquitectura:</strong> Diseñar el software con patrón MVC y documentarlo con diagramas UML (clases, secuencia, casos de uso, ER y objetos).</div></div>
-        <div class="obj-item"><div class="obj-num">3</div><div class="obj-text"><strong>Concurrencia:</strong> Implementar conversión asíncrona y paralela con SemaphoreSlim para controlar hilos y garantizar estabilidad del SO.</div></div>
-        <div class="obj-item"><div class="obj-num">4</div><div class="obj-text"><strong>GPU:</strong> Integrar soporte de aceleración por GPU (NVIDIA NVENC, AMD AMF, Intel QSV) con detección automática de hardware.</div></div>
-        <div class="obj-item"><div class="obj-num">5</div><div class="obj-text"><strong>Seguridad:</strong> Desarrollar módulo de gestión de usuarios con autenticación SHA-256 y control de acceso por niveles respaldado en MySQL.</div></div>
-        <div class="obj-item"><div class="obj-num">6</div><div class="obj-text"><strong>Calidad:</strong> Evaluar el producto con plan de pruebas funcionales, de rendimiento y usabilidad con criterios de aceptación medibles.</div></div>
-      </div>
-    </div>
-  </div>
-
   <!-- S0-5 Equipo -->
   <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
     <div class="sc">
@@ -565,26 +551,6 @@ code { border-radius: 4px; padding: 1px 5px; font-family: 'JetBrains Mono', mono
     </div>
   </div>
 
-  <!-- S0-6 Sprint 0 Entregables -->
-  <div class="slide" style="background:radial-gradient(ellipse at 70% 30%,#172033 0%,#0f172a 70%)">
-    <div class="sc">
-      <div class="slide-header"><div class="slide-num">06 · Sprint 0</div><h2>Entregables del <em>Sprint 0</em></h2><div class="divider"></div></div>
-      <div class="two-col">
-        <div>
-          <div class="obj-item"><div class="obj-num">E1</div><div class="obj-text"><strong>Hoja de Identificación del Proyecto</strong> — Huichi Calderon Y.</div></div>
-          <div class="obj-item"><div class="obj-num">E2</div><div class="obj-text"><strong>Hoja de Diseño Técnico</strong> — Calsina Pari J.</div></div>
-          <div class="obj-item"><div class="obj-num">E3</div><div class="obj-text"><strong>Identificación de Requisitos Funcionales</strong> — Huichi Calderon Y.</div></div>
-          <div class="obj-item"><div class="obj-num">E4</div><div class="obj-text"><strong>Definición de Requisitos No Funcionales</strong> — Mamani Vilca G.</div></div>
-        </div>
-        <div>
-          <div class="obj-item"><div class="obj-num">E5</div><div class="obj-text"><strong>Visión del Producto con capturas</strong> — Quispe Quispe D.</div></div>
-          <div class="obj-item"><div class="obj-num">E6</div><div class="obj-text"><strong>Product Backlog inicial (10 historias)</strong> — Equipo completo</div></div>
-          <div class="obj-item"><div class="obj-num">E7</div><div class="obj-text"><strong>Código fuente Sprint 0</strong> — Pacori Ray T. / Calsina Pari J.</div></div>
-          <div class="obj-item"><div class="obj-num">E8</div><div class="obj-text"><strong>Informe Final de Documentación</strong> — Equipo completo</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div><!-- /sec0 -->
 
 <!-- ════════════════════════════════════════════════════════
@@ -634,7 +600,7 @@ code { border-radius: 4px; padding: 1px 5px; font-family: 'JetBrains Mono', mono
       <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-04<br>Alta</div><div class="us-text"><strong>Carga de videos:</strong> Como usuario, quiero seleccionar una carpeta y ver los videos disponibles con sus metadatos.</div></div>
       <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-06<br>Alta</div><div class="us-text"><strong>Conversión paralela:</strong> Como usuario, quiero convertir múltiples videos en paralelo y ver el progreso individual.</div></div>
       <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-07<br>Media</div><div class="us-text"><strong>Pausa/Reanudación:</strong> Como usuario, quiero pausar y reanudar la conversión en curso sin perder el avance.</div></div>
-      <div class="us-item"><div class="us-id" style="background:rgba(139,92,246,.15);color:#a78bfa">US-10<br>Baja</div><div class="us-text"><strong>Historial:</strong> Como administrador, quiero ver el historial de conversiones realizadas por todos los usuarios.</div></div>
+
     </div>
   </div>
 
@@ -826,57 +792,107 @@ code { border-radius: 4px; padding: 1px 5px; font-family: 'JetBrains Mono', mono
     </div>
   </div>
 
-  <!-- S3-2 Código -->
-  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#04200f 0%,#0f172a 70%)">
-    <div class="sc">
-      <div class="slide-header"><div class="slide-num">02 · Código Principal</div><h2><em>Class_Modulo.cs</em> – Motor de Conversión</h2><div class="divider"></div></div>
-      <div class="two-col">
-        <div class="code-block"><span class="cm">// APIs nativas de Windows para pausar/reanudar</span>
-[<span class="cls">DllImport</span>(<span class="str">"ntdll.dll"</span>)]
-<span class="kw">private static extern void</span> <span class="fn">NtSuspendProcess</span>(IntPtr h);
-[<span class="cls">DllImport</span>(<span class="str">"ntdll.dll"</span>)]
-<span class="kw">private static extern void</span> <span class="fn">NtResumeProcess</span>(IntPtr h);
-
-<span class="cm">// Eventos de comunicación (patrón Observer)</span>
-<span class="kw">public event</span> Action&lt;double&gt; ProgresoReportado;
-<span class="kw">public event</span> Action&lt;string&gt; ErrorReportado;
-
-<span class="cm">// Construcción dinámica de argumentos FFmpeg</span>
-<span class="kw">private string</span> <span class="fn">BuildArguments</span>()
-{
-  <span class="kw">string</span> vcodec = <span class="str">"libx264"</span>;
-  <span class="kw">if</span> (ConfigConversion.UsarGPU) {
-    <span class="kw">var</span> gpu = ConfigConversion.NombreGPU.ToLower();
-    <span class="kw">if</span> (gpu.Contains(<span class="str">"nvidia"</span>)) vcodec = <span class="str">"h264_nvenc"</span>;
-    <span class="kw">else if</span> (gpu.Contains(<span class="str">"amd"</span>))   vcodec = <span class="str">"h264_amf"</span>;
-    <span class="kw">else if</span> (gpu.Contains(<span class="str">"intel"</span>)) vcodec = <span class="str">"h264_qsv"</span>;
-  }
-  <span class="kw">return</span> $<span class="str">"-y -i \"{InputFile}\" -c:v {vcodec} \"{OutputFile}\""</span>;
-}</div>
-        <div class="code-block"><span class="cm">// Parsing progreso en tiempo real (stderr FFmpeg)</span>
-<span class="kw">var</span> durRegex = <span class="kw">new</span> <span class="cls">Regex</span>(<span class="str">@"Duration:\s*(\d+):(\d+):(\d+)"</span>);
-<span class="kw">var</span> timeRegex = <span class="kw">new</span> <span class="cls">Regex</span>(<span class="str">@"time=(\d+):(\d+):(\d+)"</span>);
-
-<span class="kw">while</span> ((line = stderr.<span class="fn">ReadLine</span>()) != <span class="kw">null</span>)
-{
-  <span class="kw">if</span> (durRegex.<span class="fn">Match</span>(line).Success)
-    totalSegundos = h*<span class="num">3600</span> + m*<span class="num">60</span> + s;
-
-  <span class="kw">if</span> (timeRegex.<span class="fn">Match</span>(line).Success &amp;&amp; totalSegundos &gt; <span class="num">0</span>)
-  {
-    <span class="kw">double</span> pct = (actual / totalSegundos) * <span class="num">100.0</span>;
-    ProgresoReportado?.Invoke(pct); <span class="cm">// → UI</span>
-  }
-}
-<span class="cm">// Limpieza si fue cancelado por el usuario</span>
-<span class="kw">if</span> (canceladoPorUsuario)
-  File.<span class="fn">Delete</span>(OutputFile); <span class="cm">// Borra archivo incompleto</span>
-
-<span class="cm">// Concurrencia en Form_converter</span>
-semaforo = <span class="kw">new</span> <span class="cls">SemaphoreSlim</span>(maxHilos);
-<span class="kw">await</span> semaforo.<span class="fn">WaitAsync</span>();
-<span class="kw">await</span> Task.<span class="fn">WhenAll</span>(tareas);</div>
+  <!-- S3-2 Código – Integración de clases -->
+  <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#04200f 0%,#0f172a 70%);padding-top:35px">
+    <div class="sc" style="max-width:1140px">
+      <div class="slide-header" style="margin-bottom:8px">
+        <div class="slide-num">02 · Integración de Clases</div>
+        <h2 style="font-size:2rem"><em>Class_Modulo</em> + ConfigConversion &amp; MetadatosVideo</h2>
+        <div class="divider"></div>
       </div>
+
+      <!-- etiquetas de sección -->
+      <div style="display:grid;grid-template-columns:3fr 2fr;gap:14px;width:100%">
+
+        <!-- COLUMNA IZQUIERDA: ConfigConversion → Class_Modulo -->
+        <div>
+          <!-- cabecera ConfigConversion -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#34d399;font-size:.65rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace">ConfigConversion.cs · clase estática</span>
+            <span style="font-size:.65rem;color:#475569">→ almacena la configuración global de sesión</span>
+          </div>
+          <div class="code-block" style="margin-bottom:8px;font-size:.65rem;padding:10px 14px"><span class="kw">public static class</span> <span class="cls">ConfigConversion</span>
+{
+  <span class="kw">public static bool</span>   UsarGPU        = <span class="kw">false</span>;
+  <span class="kw">public static string</span> NombreGPU      = <span class="str">""</span>;     <span class="cm">// "NVIDIA RTX 3060"</span>
+  <span class="kw">public static int</span>    HilosParalelos = <span class="num">2</span>;       <span class="cm">// conversiones simultáneas</span>
+  <span class="kw">public static string</span> FormatoDestino = <span class="str">"mp4"</span>;  <span class="cm">// mp4 | mkv | webm | avi</span>
+  <span class="kw">public static string</span> RutaSalida     = <span class="str">""</span>;     <span class="cm">// carpeta de destino</span>
+}</div>
+
+          <!-- flecha visual de integración -->
+          <div style="text-align:center;font-size:.75rem;color:#34d399;margin-bottom:6px;font-weight:700;letter-spacing:.04em">↓ &nbsp;Class_Modulo lee ConfigConversion en BuildArguments()</div>
+
+          <!-- cabecera Class_Modulo -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#34d399;font-size:.65rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace">Class_Modulo.cs · BuildArguments()</span>
+            <span style="font-size:.65rem;color:#475569">→ selecciona codec según config</span>
+          </div>
+          <div class="code-block" style="font-size:.65rem;padding:10px 14px"><span class="kw">private string</span> <span class="fn">BuildArguments</span>()
+{
+  <span class="cm">// ① Lee si se activó GPU en Form_Setup</span>
+  <span class="kw">string</span> vcodec = <span class="str">"libx264"</span>;  <span class="cm">// fallback → CPU</span>
+  <span class="kw">if</span> (<span class="cls">ConfigConversion</span>.UsarGPU)
+  {
+    <span class="kw">string</span> gpu = <span class="cls">ConfigConversion</span>.NombreGPU.<span class="fn">ToLower</span>();
+    <span class="kw">if</span>      (gpu.<span class="fn">Contains</span>(<span class="str">"nvidia"</span>)) vcodec = <span class="str">"h264_nvenc"</span>;
+    <span class="kw">else if</span> (gpu.<span class="fn">Contains</span>(<span class="str">"amd"</span>))    vcodec = <span class="str">"h264_amf"</span>;
+    <span class="kw">else if</span> (gpu.<span class="fn">Contains</span>(<span class="str">"intel"</span>))  vcodec = <span class="str">"h264_qsv"</span>;
+  }
+  <span class="cm">// ② Lee el formato destino</span>
+  <span class="kw">string</span> fmt = <span class="cls">ConfigConversion</span>.FormatoDestino;
+
+  <span class="cm">// ③ Arma el comando FFmpeg final</span>
+  <span class="kw">return</span> <span class="str">$"-y -i \"{InputFile}\" -c:v {vcodec} -f {fmt} \"{OutputFile}\""</span>;
+}
+
+<span class="cm">// ④ SemaphoreSlim toma HilosParalelos</span>
+var semaforo = <span class="kw">new</span> <span class="cls">SemaphoreSlim</span>(<span class="cls">ConfigConversion</span>.HilosParalelos);</div>
+        </div>
+
+        <!-- COLUMNA DERECHA: Class_MetadatosVideo -->
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.3);color:#38bdf8;font-size:.65rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace">MetadatosVideo.cs · modelo de datos</span>
+          </div>
+          <div class="code-block" style="margin-bottom:8px;font-size:.65rem;padding:10px 14px"><span class="kw">public class</span> <span class="cls">MetadatosVideo</span>
+{
+  <span class="cm">// Identificación del archivo</span>
+  <span class="kw">public string</span> NombreArchivo   { <span class="kw">get; set;</span> }
+  <span class="kw">public string</span> RutaCompleta    { <span class="kw">get; set;</span> }
+  <span class="kw">public string</span> Extension       { <span class="kw">get; set;</span> }
+
+  <span class="cm">// Características del video</span>
+  <span class="kw">public double</span> TamañoMB        { <span class="kw">get; set;</span> }
+  <span class="kw">public double</span> DuracionSegundos { <span class="kw">get; set;</span> }
+  <span class="kw">public string</span> Resolucion      { <span class="kw">get; set;</span> }
+
+  <span class="cm">// Estado en la cola de conversión</span>
+  <span class="kw">public string</span> Estado    { <span class="kw">get; set;</span> } <span class="cm">// Pendiente|Convirtiendo|Completado</span>
+  <span class="kw">public double</span> Progreso  { <span class="kw">get; set;</span> } <span class="cm">// 0.0 – 100.0</span>
+}</div>
+
+          <!-- uso en Form_converter -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <span style="background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.3);color:#38bdf8;font-size:.65rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace">Form_Converter · DataGridView1</span>
+          </div>
+          <div class="code-block" style="font-size:.65rem;padding:10px 14px"><span class="cm">// Lista vinculada al DataGridView1</span>
+<span class="cls">List</span>&lt;<span class="cls">MetadatosVideo</span>&gt; listaVideos = <span class="kw">new</span> <span class="cls">List</span>&lt;<span class="cls">MetadatosVideo</span>&gt;();
+
+<span class="cm">// Al escanear carpeta → se crean objetos</span>
+listaVideos.<span class="fn">Add</span>(<span class="kw">new</span> <span class="cls">MetadatosVideo</span> {
+  NombreArchivo   = fi.Name,
+  RutaCompleta    = fi.FullName,
+  Extension       = fi.Extension,
+  TamañoMB        = fi.Length / <span class="num">1048576.0</span>,
+  Estado          = <span class="str">"Pendiente"</span>,
+  Progreso        = <span class="num">0</span>
+});
+
+<span class="cm">// Vinculación al DataGridView1</span>
+DataGridView1.DataSource = listaVideos;</div>
+        </div>
+      </div><!-- /grid -->
     </div>
   </div>
 
@@ -898,8 +914,8 @@ semaforo = <span class="kw">new</span> <span class="cls">SemaphoreSlim</span>(ma
   <!-- S3-4 Aportes -->
   <div class="slide" style="background:radial-gradient(ellipse at 75% 25%,#04200f 0%,#0f172a 70%)">
     <div class="sc">
-      <div class="slide-header"><div class="slide-num">04 · Aportes Directos</div><h2>Mi Aporte al <em>Proyecto KODEX</em></h2><div class="divider"></div></div>
-      <div class="flow" style="margin-bottom:18px">
+      <div class="slide-header"><div class="slide-num">04 · Resumen de Aportes</div><h2>Resumen de mi <em>Aporte al Proyecto</em></h2><div class="divider"></div></div>
+      <div class="flow" style="margin-bottom:14px">
         <div class="flow-step"><div class="s-icon">👤</div><div class="s-name" style="color:#34d399">Usuario</div><div class="s-desc">Click Convertir</div></div>
         <div class="flow-arrow" style="color:#34d399">→</div>
         <div class="flow-step"><div class="s-icon">🔐</div><div class="s-name" style="color:#34d399">SemaphoreSlim</div><div class="s-desc">WaitAsync()</div></div>
@@ -912,13 +928,23 @@ semaforo = <span class="kw">new</span> <span class="cls">SemaphoreSlim</span>(ma
         <div class="flow-arrow" style="color:#34d399">→</div>
         <div class="flow-step"><div class="s-icon">🖥️</div><div class="s-name" style="color:#34d399">UI (Invoke)</div><div class="s-desc">DataGridView</div></div>
       </div>
-      <div class="aporte-box">
-        <h4>⚙️ Class_Modulo.cs + Form_converter.cs (lógica) – Entregable E-07</h4>
-        <p>Desarrollé junto con Calsina el código fuente completo del Sprint 0. Mi responsabilidad directa fue el motor de conversión <strong>Class_Modulo.cs</strong> (248 líneas) y la lógica asíncrona de <strong>Form_converter.cs</strong> (406 líneas). Manejo concurrencia, integración con proceso externo FFmpeg, APIs nativas de Windows y comunicación thread-safe con la UI.</p>
-      </div>
-      <div class="aporte-box">
-        <h4>🔧 Codecs y Formatos Soportados</h4>
-        <p>Implementé soporte completo: <code>mp4</code> (h264+aac, faststart), <code>webm</code> (libvpx-vp9+libopus), <code>avi</code> (mpeg4+libmp3lame), modo <code>copy</code>. En GPU: <code>h264_nvenc</code>, <code>h264_amf</code>, <code>h264_qsv</code> con parámetros de calidad equivalentes (cq/cqp/global_quality = 20).</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px">
+        <div class="aporte-box" style="margin-bottom:0">
+          <h4>⚙️ Class_Modulo.cs + Form_converter.cs – E-07</h4>
+          <p>Motor de conversión <strong>Class_Modulo.cs</strong> (248 líneas) y lógica asíncrona de <strong>Form_converter.cs</strong> (406 líneas). Manejo de concurrencia, integración FFmpeg y comunicación thread-safe con la UI vía <code>this.Invoke()</code>.</p>
+        </div>
+        <div class="aporte-box" style="margin-bottom:0">
+          <h4>🔧 Codecs y Formatos Soportados</h4>
+          <p>Soporte completo: <code>mp4</code> (h264+aac), <code>webm</code> (libvpx-vp9), <code>avi</code> (mpeg4). GPU: <code>h264_nvenc</code>, <code>h264_amf</code>, <code>h264_qsv</code> con calidad equivalente (cq/cqp/global_quality = 20).</p>
+        </div>
+        <div class="aporte-box" style="margin-bottom:0">
+          <h4>⚙️ ConfigConversion + Form_Utilitarios</h4>
+          <p>Implementé la clase estática <code>ConfigConversion</code> que almacena el estado global de la sesión de conversión: <code>UsarGPU</code>, <code>NombreGPU</code>, <code>HilosParalelos</code> y <code>FormatoDestino</code>. También <strong>Form_Utilitarios</strong> que expone herramientas de diagnóstico del sistema (detección de GPU, uso de RAM y núcleos disponibles) accesibles desde el menú principal.</p>
+        </div>
+        <div class="aporte-box" style="margin-bottom:0">
+          <h4>📋 Class_MetadatosVideo + Tabla de Form_Converter</h4>
+          <p>Diseñé la clase <code>MetadatosVideo</code> con propiedades: <code>NombreArchivo</code>, <code>RutaCompleta</code>, <code>Extension</code>, <code>TamañoMB</code>, <code>DuracionSegundos</code> y <code>Estado</code>. Estos objetos se listan en el <strong>DataGridView1</strong> de Form_Converter y se actualizan en tiempo real durante la conversión.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -999,14 +1025,7 @@ semaforo = <span class="kw">new</span> <span class="cls">SemaphoreSlim</span>(ma
           </div>
         </div>
         <div>
-          <div class="db-table" style="margin-bottom:12px">
-            <div class="db-header">🗄️ tabla: <strong>conversiones</strong> (Sprint 2)</div>
-            <div class="db-field"><span class="fld-name pk" style="color:#fbbf24">convId</span><span class="fld-type">INT (PK)</span><span class="fld-desc">ID de conversión</span></div>
-            <div class="db-field"><span class="fld-name fk">usersId</span><span class="fld-type">INT (FK)</span><span class="fld-desc">→ usuarios.usersId</span></div>
-            <div class="db-field"><span class="fld-name">formato</span><span class="fld-type">VARCHAR(10)</span><span class="fld-desc">mp4, mkv, webm...</span></div>
-            <div class="db-field"><span class="fld-name">estado</span><span class="fld-type">VARCHAR(20)</span><span class="fld-desc">Completado/Cancelado</span></div>
-            <div class="db-field"><span class="fld-name">fechaConversion</span><span class="fld-type">DATETIME</span><span class="fld-desc">Timestamp</span></div>
-          </div>
+
           <div class="card" style="padding:14px">
             <h3 style="color:#fbbf24;font-size:.82rem">🔧 SP: <code style="font-family:monospace;color:#fbbf24">Acceder(Usuario, Claves)</code></h3>
             <p style="font-size:.76rem">Valida credenciales en MySQL. Recibe usuario en texto plano y hash SHA-256 de la contraseña. Retorna datos de sesión (usersId, grupoId, nombres, nivel) o <em>mensaje='No Existe'</em>. La lógica de autenticación vive en la BD, no en el código C#.</p>
